@@ -219,24 +219,26 @@ Noise words are redundant. The word variable should never appear in a variable n
 
 Imagine you have the variable `genymdhms` (Generation date, year, month, day, hour, minute and second) and imagine a conversation where you need talk about this variable calling it "gen why emm dee aich emm ess". You can consider convert a class like this:
 
-```java
-class DtaRcrd102 {
-  private Date genymdhms;
-  private Date modymdhms;
-  private final String pszqint = "102";
-  /* ... */
-};
+```csharp
+private class DtaRcrd102
+{
+    private const string pszqint = "102";
+    private DateTime genymdhms;
+    private DateTime modymdhms;
+    /* ... */
+}
 ```
 
 To
 
-```java
-class Customer {
-  private Date generationTimestamp;
-  private Date modificationTimestamp;;
-  private final String recordId = "102";
-  /* ... */
-};
+```csharp
+private class Customer
+{
+    private const string recordId = "102";
+    private DateTime generationTimestamp;
+    private DateTime modificationTimestamp;
+    /* ... */
+}
 ```
 
 ### Use Searchable Names
