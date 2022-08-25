@@ -181,25 +181,37 @@ Programmers create problems for themselves when they write code solely to satisf
 .
 In the next function, the arguments are noninformative, `a1` and `a2` doesn't provide clues to the author intention.
 
-```java
-public static void copyChars(char a1[], char a2[]) {
-  for (int i = 0; i < a1.length; i++) {
-    a2[i] = a1[i];
-  }
+```csharp
+public static void copyChars(char[] a1, char[] a2)
+{
+    for (var i = 0; i < a1.Length; i++) a2[i] = a1[i];
 }
 ```
 
 We can improve the code selecting more explicit argument names:
 
-```java
-public static void copyChars(char source[], char destination[]) {
-  for (int i = 0; i < source.length; i++) {
-    destination[i] = source[i];
-  }
+```csharp
+public static void copyChars(char[] source, char[] destination)
+{
+    for (var i = 0; i < source.Length; i++) destination[i] = source[i];
 }
 ```
 
 Noise words are another meaningless distinction. Imagine that you have a Product class. If you have another called `ProductInfo` or `ProductData`, you have made the names different without making them mean anything different. Info and Data are indistinct noise words like a, an, and the.
+
+```csharp
+//Bad:
+public class ProductInfo{
+
+}
+public class ProductData{
+
+}
+//Good:
+public class Product{
+
+}
+```
 
 Noise words are redundant. The word variable should never appear in a variable name. The word table should never appear in a table name.
 
