@@ -245,6 +245,31 @@ private class Customer
 
 Single-letter names and numeric constants have a particular problem in that they are not easy to locate across a body of text.
 
+```csharp
+//Bad:
+public double FooFuction(int[] t)
+{
+    double s = 0;
+    for (var j = 0; j < 34; j++) s += t[j] * 4 / 5;
+    return s;
+}
+//Good:
+public double FooFuction(int[] taskEstimate)
+{
+    const int NUMBER_OF_TASKS = 34;
+    var realDaysPerIdealDay = 4;
+    const int WORK_DAYS_PER_WEEK = 5;
+    double sum = 0;
+    for (var j = 0; j < NUMBER_OF_TASKS; j++)
+    {
+        var realTaskDays = taskEstimate[j] * realDaysPerIdealDay;
+        var realTaskWeeks = realTaskDays / WORK_DAYS_PER_WEEK;
+        sum += realTaskWeeks;
+    }
+    return sum;
+}
+```
+
 ### Avoid Encoding
 
 We have enough encodings to deal with without adding more to our burden. Encoding type or scope information into names simply adds an extra burden of deciphering. Encoded names are seldom pronounceable and are easy to mis-type. An example of this, is the use of the [Hungarian Notation](https://en.wikipedia.org/wiki/Hungarian_notation) or the use of member prefixes.
