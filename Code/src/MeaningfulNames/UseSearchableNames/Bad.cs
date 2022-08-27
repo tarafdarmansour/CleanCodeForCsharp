@@ -1,6 +1,6 @@
 ﻿namespace UseSearchableNames;
 
-public class Before
+public class Bad
 {
     public double FooFuction(int[] t)
     {

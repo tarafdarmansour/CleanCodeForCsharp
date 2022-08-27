@@ -1,6 +1,6 @@
 ﻿namespace UseSearchableNames;
 
-public class After
+public class Good
 {
     public double FooFuction(int[] taskEstimate)
     {

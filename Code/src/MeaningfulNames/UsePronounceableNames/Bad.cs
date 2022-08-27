@@ -1,6 +1,6 @@
 ﻿namespace UsePronounceableNames;
 
-public class Before
+public class Bad
 {
     private class DtaRcrd102
     {

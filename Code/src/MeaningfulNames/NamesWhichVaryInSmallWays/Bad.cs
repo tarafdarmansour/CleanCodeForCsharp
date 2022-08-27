@@ -1,4 +1,4 @@
-﻿namespace CleanCodeNotes.MeaningfulNames.NamesWhichVaryInSmallWays.Before;
+﻿namespace CleanCodeNotes.MeaningfulNames.NamesWhichVaryInSmallWays.Bad;
 
 public class Controllers
 {

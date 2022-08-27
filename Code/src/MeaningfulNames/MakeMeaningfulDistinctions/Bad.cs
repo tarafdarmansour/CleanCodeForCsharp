@@ -1,6 +1,6 @@
 ﻿namespace MakeMeaningfulDistinctions;
 
-public class Before
+public class Bad
 {
     public static void copyChars(char[] a1, char[] a2)
     {

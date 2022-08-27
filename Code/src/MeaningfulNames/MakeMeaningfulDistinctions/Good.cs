@@ -1,6 +1,6 @@
 ﻿namespace MakeMeaningfulDistinctions;
 
-internal class After
+internal class Good
 {
     public static void copyChars(char[] source, char[] destination)
     {

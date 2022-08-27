@@ -1,4 +1,4 @@
-﻿namespace CleanCodeNotes.MeaningfulNames.NamesWhichVaryInSmallWays.After;
+﻿namespace CleanCodeNotes.MeaningfulNames.NamesWhichVaryInSmallWays.Good;
 
 public class XYZControllerForEfficient
 {

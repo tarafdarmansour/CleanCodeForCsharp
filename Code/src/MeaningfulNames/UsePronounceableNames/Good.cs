@@ -1,6 +1,6 @@
 ﻿namespace UsePronounceableNames;
 
-public class After
+public class Good
 {
     private class Customer
     {
