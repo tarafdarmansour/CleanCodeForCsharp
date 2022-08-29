@@ -274,6 +274,25 @@ public double FooFuction(int[] taskEstimate)
 
 We have enough encodings to deal with without adding more to our burden. Encoding type or scope information into names simply adds an extra burden of deciphering. Encoded names are seldom pronounceable and are easy to mis-type. An example of this, is the use of the [Hungarian Notation](https://en.wikipedia.org/wiki/Hungarian_notation) or the use of member prefixes.
 
+```csharp
+//Bad:
+public class Bad
+{
+    private int[] arri8NumberList = new int[8];
+    private long lAccountNum;
+    private string strName;
+    public string m_description { get; set; }
+}
+//Good:
+public class Good
+{
+    private long account;
+    private string name;
+    private int[] numbers = new int[8];
+    public string Description { get; set; }
+}
+```
+
 #### Interfaces and Implementations
 
 These are sometimes a special case for encodings. For example, say you are building an ABSTRACT FACTORY for the creation of shapes. This factory will be an interface and will be implemented by a concrete class. What should you name them? `IShapeFactory` and `ShapeFactory`? Is preferable to leave interfaces unadorned.I don’t want my users knowing that I’m handing them an interface. I just want them to know that it’s a `ShapeFactory`. So if I must encode either the interface or the implementation, I choose the implementation. Calling it `ShapeFactoryImp`, or even the hideous `CShapeFactory`, is preferable to encoding the interface.
