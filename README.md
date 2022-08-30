@@ -82,6 +82,7 @@ The name of a variable, function or class, should answer all the big questions. 
 Choosing names that reveal intent can make much easier to understand and change code. Example:
 
 ```csharp
+//Bad:
 public List<int[]> getThem(List<int[]> theList)
 {
     List<int[]> list1 = new List<int[]>();
@@ -102,6 +103,7 @@ This code is simple, but create many questions:
 The answers to these questions are not present in the code sample, but they could have been. Say that we’re working in a mine sweeper game. We can refactor the previous code as follows:
 
 ```csharp
+//Good:
 const int STATUS_VALUE = 0;
 const int FLAGGED = 4;
 public List<int[]> getFlaggedCells(List<int[]> gameBoard)
@@ -125,6 +127,7 @@ Notice that the simplicity of the code has not changed. It still has exactly the
 We can improve the code writing a simple class for cells instead of using an array of `ints`. It can include an **intention-revealing function** (called it `isFlagged`) to hide the magic numbers. It results in a new function of the function.
 
 ```csharp
+//Better:
 public List<Cell> getFlaggedCells(List<Cell> gameBoard)
 {
     List<Cell> flaggedCells = new List<Cell>();
