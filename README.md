@@ -1,4 +1,4 @@
-# Clean Code Notes
+# Clean Code Notes In C# (in progress)
 
 ## Table of contents
 
