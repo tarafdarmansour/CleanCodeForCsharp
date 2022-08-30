@@ -316,7 +316,55 @@ public class CGood : IGood
 
 Readers shouldn't have to mentally translate your names into other names they already know.
 
-One difference between a smart programmer and a professional programmer is that the professional understands that clarity is king. Professionals use their powers for good and write code that others can understand.
+One difference between a smart programmer and a professional programmer is that the professional understands that **clarity is king**. Professionals use their powers for good and write code that others can understand.
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public int FooProperty { get; set; }
+}
+//Bad:
+public class Bad
+{
+    public int CalculateProductSomeData(List<Product> products)
+    {
+        var result = 0;
+        foreach (var p in products)
+        {
+            // lots of code here
+
+            var evaluatedFooProperty = p.FooProperty;
+
+            result += evaluatedFooProperty;
+
+            // lots of code here
+        }
+
+        return result;
+    }
+}
+//Good:
+public class Good
+{
+    public int CalculateProductSomeData(List<Product> products)
+    {
+        var result = 0;
+        foreach (var product in products)
+        {
+            // lots of code here
+
+            var evaluatedFooProperty = product.FooProperty;
+
+            result += evaluatedFooProperty;
+
+            // lots of code here
+        }
+
+        return result;
+    }
+}
+```
 
 ### Class Names
 
