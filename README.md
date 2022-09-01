@@ -394,14 +394,93 @@ Methods should have verb or verb phrase names like `postPayment`, `deletePage` o
 
 When constructors are overloaded, use static factory methods with names that describe the arguments. For example:
 
-```java
-Complex fulcrumPoint = Complex.FromRealNumber(23.0);
-```
+```csharp
+//Bad:
+public class Complex
+{
+    private double doublePartOfComplex;
+    public Complex(double d)
+    {
+        doublePartOfComplex = d;
+    }
+}
 
-Is generally better than
+public class Employee
+{
+    private string name;
+    public string NameGetter()
+    {
+        return name;
+    }
+}
 
-```java
-Complex fulcrumPoint = new Complex(23.0);
+public class Customer
+{
+    private string name;
+    public void NameSettr(string s)
+    {
+        name = s;
+    }
+}
+
+public class PayCheck
+{
+    private PayCheckState state;
+    public int ReturnPayCheckState()
+    {
+        return (int)state;
+    }
+    private enum PayCheckState
+    {
+        Calcelated,
+        Posted
+    }
+}
+//Good:
+public class Complex
+{
+    private double doublePartOfComplex;
+    private Complex(double doublePartOfComplex)
+    {
+        this.doublePartOfComplex = doublePartOfComplex;
+    }
+    public static Complex FromDoubleNumber(double d)
+    {
+        return new Complex(d);
+    }
+}
+
+public class Employee
+{
+    private string name;
+    public string GetName()
+    {
+        return name;
+    }
+}
+
+public class Customer
+{
+    private string name;
+    public void SetName(string s)
+    {
+        name = s;
+    }
+}
+
+public class PayCheck
+{
+    private PayCheckState state;
+    public bool IsPosted()
+    {
+        return state == PayCheckState.Posted;
+    }
+    private enum PayCheckState
+    {
+        Calcelated,
+        Posted
+    }
+}
 ```
 
 Consider enforcing their use by making the corresponding constructors private.
