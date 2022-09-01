@@ -436,6 +436,17 @@ public class PayCheck
         Posted
     }
 }
+
+var complex = new Complex(23.0);
+var employee = new Employee();
+var employeeName = employee.NameGetter();
+var customer = new Customer();
+customer.NameSettr("Mike");
+var payCheck = new PayCheck();
+if (payCheck.ReturnPayCheckState() == 1)
+{
+    //do somethings
+}
 //Good:
 public class Complex
 {
@@ -480,6 +491,17 @@ public class PayCheck
         Calcelated,
         Posted
     }
+}
+
+var complex = Complex.FromDoubleNumber(23.0);
+var employee = new Employee();
+var employeeName = employee.GetName();
+var customer = new Customer();
+customer.SetName("Mike");
+var payCheck = new PayCheck();
+if (payCheck.IsPosted())
+{
+    //do somethings
 }
 ```
 

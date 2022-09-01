@@ -45,3 +45,20 @@ public class PayCheck
         Posted
     }
 }
+
+public class Main
+{
+    public void ShowSampleCase()
+    {
+        var complex = new Complex(23.0);
+        var employee = new Employee();
+        var employeeName = employee.NameGetter();
+        var customer = new Customer();
+        customer.NameSettr("Mike");
+        var payCheck = new PayCheck();
+        if (payCheck.ReturnPayCheckState() == 1)
+        {
+            //do somethings
+        }
+    }
+}

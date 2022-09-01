@@ -50,3 +50,20 @@ public class PayCheck
         Posted
     }
 }
+
+public class Main
+{
+    public void ShowSampleCase()
+    {
+        var complex = Complex.FromDoubleNumber(23.0);
+        var employee = new Employee();
+        var employeeName = employee.GetName();
+        var customer = new Customer();
+        customer.SetName("Mike");
+        var payCheck = new PayCheck();
+        if (payCheck.IsPosted())
+        {
+            //do somethings
+        }
+    }
+}
