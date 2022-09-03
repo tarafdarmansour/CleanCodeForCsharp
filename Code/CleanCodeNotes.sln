@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassNames", "src\Meaningfu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodNames", "src\MeaningfulNames\MethodNames\MethodNames.csproj", "{82B5119F-AEDC-4E22-88DD-41B23B075AE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pickonewordperconcept", "src\MeaningfulNames\Pickonewordperconcept\Pickonewordperconcept.csproj", "{18A2B1E3-E1BB-443B-A492-A01F886B5B62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{82B5119F-AEDC-4E22-88DD-41B23B075AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82B5119F-AEDC-4E22-88DD-41B23B075AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82B5119F-AEDC-4E22-88DD-41B23B075AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A2B1E3-E1BB-443B-A492-A01F886B5B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A2B1E3-E1BB-443B-A492-A01F886B5B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A2B1E3-E1BB-443B-A492-A01F886B5B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A2B1E3-E1BB-443B-A492-A01F886B5B62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{E11279F2-1CFA-44EE-9506-0599281A26C8} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 		{48CB7B7F-99FD-43E2-99B2-90C6152F572A} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 		{82B5119F-AEDC-4E22-88DD-41B23B075AE3} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
+		{18A2B1E3-E1BB-443B-A492-A01F886B5B62} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}

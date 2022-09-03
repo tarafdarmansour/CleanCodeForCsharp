@@ -519,6 +519,17 @@ Consider enforcing their use by making the corresponding constructors private.
 
 Pick one word for one abstract concept and stick with it. For instance, it’s confusing to have fetch, retrieve, and get as equivalent methods of different classes.
 
+```csharp
+//Bad:
+var devices = device.FetchDevices();
+var products = product.GetProducts();
+var customers = customer.RetriveCustomers();
+//Good:
+var devices = device.GetDevices();
+var products = product.GetProducts();
+var customers = customer.GetCustomers();
+```
+
 ### Don’t Pun
 
 Avoid using the same word for two purposes. Using the same term for two different ideas is essentially a pun.
