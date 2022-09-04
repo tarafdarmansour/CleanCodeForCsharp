@@ -536,6 +536,59 @@ Avoid using the same word for two purposes. Using the same term for two differen
 
 Example: in a class use `add` for create a new value by adding or concatenating two existing values and in another class use `add` for put a simple parameter in a collection, it's a better options use a name like `insert` or `append` instead.
 
+```csharp
+//Bad:
+public class Customer
+{
+    public int Add(string Name)
+    {
+        // Add a new customer to DB
+        throw new NotImplementedException();
+    }
+}
+public class CustomString
+{
+    public int Add(string stringToAppend)
+    {
+        // Append input string to exist string
+        throw new NotImplementedException();
+    }
+}
+public class CustomLogger
+{
+    public int Add(string logData)
+    {
+        // insert log on media
+        throw new NotImplementedException();
+    }
+}
+//Good:
+public class Customer
+{
+    public int Add(string Name)
+    {
+        // Add a new customer to DB
+        throw new NotImplementedException();
+    }
+}
+public class CustomString
+{
+    public int Append(string stringToAppend)
+    {
+        // Append input string to exist string
+        throw new NotImplementedException();
+    }
+}
+public class CustomLogger
+{
+    public int Insert(string logData)
+    {
+        // insert log on media
+        throw new NotImplementedException();
+    }
+}
+```
+
 ### Use Solution Domain Names
 
 Remember that the people who read your code will be programmers. So go ahead and use computer science (CS) terms, algorithm names, pattern names, math terms, and so forth.
