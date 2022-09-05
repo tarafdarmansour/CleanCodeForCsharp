@@ -597,6 +597,13 @@ Remember that the people who read your code will be programmers. So go ahead and
 
 When there is no “programmer-eese” for what you’re doing, use the name from the problem domain. At least the programmer who maintains your code can ask a domain expert what it means.
 
+```csharp
+public class AccountVisitor{}
+public class StockDBContext{}
+public class JobQueue{}
+public class AuthorizationFilterAttribute{}
+```
+
 ### Add Meaningful context
 
 There are a few names which are meaningful in and of themselves—most are not. Instead, you need to place names in context for your reader by enclosing them in well-named classes, functions, or namespaces. When all else fails, then prefixing the name may be necessary as a last resort
