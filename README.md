@@ -610,6 +610,26 @@ There are a few names which are meaningful in and of themselves—most are not. 
 
 Variables like: `firstName`, `lastName`, `street`, `city`, `state`. Taken together it's pretty clear that they form an address, but, what if you saw the variable state being used alone in a method?, you could add context using prefixes like: `addrState` at least readers will understand that the variable is part of a large structure. Of course, a better solution is to create a class named `Address` then even the compiler knows that the variables belong to a bigger concept
 
+```csharp
+//Bad:
+var state = "Tehran";
+//Some code here
+var firstName = "Ali";
+//Some code here
+var lastName = "Ahmadi";
+//Some code here
+var street = "Avenue";
+return 0;
+//Good:
+var companyState = "Tehran";
+//Some code here
+var userFirstName = "Ali";
+//Some code here
+var customerLastName = "Ahmadi";
+//Some code here
+var addressStreet = "Avenue";
+```
+
 ### Don’t Add Gratuitous Context
 
 In an imaginary application called “Gas Station Deluxe,” it is a bad idea to prefix every class with GSD. Example: `GSDAccountAddress`

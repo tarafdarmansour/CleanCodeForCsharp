@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DontPun", "src\MeaningfulNa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionProblemDomainNames", "src\MeaningfulNames\SolutionProblemDomainNames\SolutionProblemDomainNames.csproj", "{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddMeaningfulcontext", "src\MeaningfulNames\AddMeaningfulcontext\AddMeaningfulcontext.csproj", "{26561F86-E659-436F-9F62-62B8524B0A78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26561F86-E659-436F-9F62-62B8524B0A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26561F86-E659-436F-9F62-62B8524B0A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26561F86-E659-436F-9F62-62B8524B0A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26561F86-E659-436F-9F62-62B8524B0A78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +116,7 @@ Global
 		{18A2B1E3-E1BB-443B-A492-A01F886B5B62} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 		{AFF6DD91-11DE-489A-8778-228DE3831A8A} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 		{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
+		{26561F86-E659-436F-9F62-62B8524B0A78} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}
