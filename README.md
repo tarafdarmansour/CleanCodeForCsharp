@@ -717,6 +717,19 @@ In an imaginary application called “Gas Station Deluxe,” it is a bad idea to
 
 Shorter names are generally better than longer ones, so long as they are clear. Add no more context to a name than is necessary.
 
+```csharp
+//Bad:
+public class GSDStock{}
+public class GSDUserController{}
+public class GSDAccountAddress{}
+public class GSDMailingAddress{}
+//Good:
+public class Stock{}
+public class UserController{}
+public class Account{}
+public class Mailing{}
+```
+
 <a name="chapter3">
 <h1>Chapter 3 -  Functions</h1>
 </a>
