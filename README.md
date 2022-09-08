@@ -742,6 +742,7 @@ Functions are the first line of organization in any topic.
 ### Small!!
 
 The first rule of functions is that they should be **small**. The second rule of functions is that they should be **smaller** than that.
+Here is an example form [Caio Cesar](https://dev.to/caiocesar/clean-code-in-c-part-2-methods-58mb) [dev.to](https://dev.to)
 
 ```csharp
 //Bad:
