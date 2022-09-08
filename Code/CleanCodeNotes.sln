@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddMeaningfulcontext", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontAddGratuitousContext", "src\MeaningfulNames\DontAddGratuitousContext\DontAddGratuitousContext.csproj", "{D165A309-B2E2-4AD0-97B8-230DB7E8B32C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallAndSmaller", "src\Functions\SmallAndSmaller\SmallAndSmaller.csproj", "{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +107,10 @@ Global
 		{D165A309-B2E2-4AD0-97B8-230DB7E8B32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D165A309-B2E2-4AD0-97B8-230DB7E8B32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D165A309-B2E2-4AD0-97B8-230DB7E8B32C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +132,8 @@ Global
 		{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 		{26561F86-E659-436F-9F62-62B8524B0A78} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
 		{D165A309-B2E2-4AD0-97B8-230DB7E8B32C} = {518AE5E0-17A7-4B2C-8630-3C9F2D2EC57E}
+		{D96FCC75-CFC3-43CE-A56D-408C0C4DD99B} = {6C493771-5710-4B08-AE41-AC62358B1108}
+		{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}
