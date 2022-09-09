@@ -820,6 +820,26 @@ This implies that the blocks within `if` statements, `else` statements, `while` 
 
 This also implies that functions should not be large enough to hold nested structures. Therefore, the indent level of a function should not be greater than one or two. This, of course, makes the functions easy to read and understand.
 
+```csharp
+//Bad:
+public Student Find(List<Student> list, int id)
+{
+Student r = null;foreach (var i in list)
+{
+if (i.Id == id)
+    r = i;          }          return r;
+}
+//Good:
+public Student Find(List<Student> Students, int id)
+{
+    Student result = null;
+    foreach (var student in Students)
+        if (student.Id == id)
+            result = student;
+    return result;
+}
+```
+
 ### Do One Thing
 
 **FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL. THEY SHOULD DO IT ONLY.**
