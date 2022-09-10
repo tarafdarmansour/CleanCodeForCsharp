@@ -31,17 +31,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pickonewordperconcept", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DontPun", "src\MeaningfulNames\DontPun\DontPun.csproj", "{AFF6DD91-11DE-489A-8778-228DE3831A8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionProblemDomainNames", "src\MeaningfulNames\SolutionProblemDomainNames\SolutionProblemDomainNames.csproj", "{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionProblemDomainNames", "src\MeaningfulNames\SolutionProblemDomainNames\SolutionProblemDomainNames.csproj", "{8348EDD2-3EAB-4F06-A7CA-C9E10F216FE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddMeaningfulcontext", "src\MeaningfulNames\AddMeaningfulcontext\AddMeaningfulcontext.csproj", "{26561F86-E659-436F-9F62-62B8524B0A78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddMeaningfulcontext", "src\MeaningfulNames\AddMeaningfulcontext\AddMeaningfulcontext.csproj", "{26561F86-E659-436F-9F62-62B8524B0A78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontAddGratuitousContext", "src\MeaningfulNames\DontAddGratuitousContext\DontAddGratuitousContext.csproj", "{D165A309-B2E2-4AD0-97B8-230DB7E8B32C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DontAddGratuitousContext", "src\MeaningfulNames\DontAddGratuitousContext\DontAddGratuitousContext.csproj", "{D165A309-B2E2-4AD0-97B8-230DB7E8B32C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallAndSmaller", "src\Functions\SmallAndSmaller\SmallAndSmaller.csproj", "{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmallAndSmaller", "src\Functions\SmallAndSmaller\SmallAndSmaller.csproj", "{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlocksandIndenting", "src\Functions\BlocksandIndenting\BlocksandIndenting.csproj", "{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlocksandIndenting", "src\Functions\BlocksandIndenting\BlocksandIndenting.csproj", "{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoOneThing", "src\Functions\DoOneThing\DoOneThing.csproj", "{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +147,7 @@ Global
 		{D96FCC75-CFC3-43CE-A56D-408C0C4DD99B} = {6C493771-5710-4B08-AE41-AC62358B1108}
 		{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 		{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
+		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}

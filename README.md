@@ -844,6 +844,36 @@ public Student Find(List<Student> Students, int id)
 
 **FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL. THEY SHOULD DO IT ONLY.**
 
+Here is an example form [Daniel Metcalfe Github.io](https://moderatemisbehaviour.github.io/clean-code-smells-and-heuristics/general/g30-functions-should-do-one-thing.html) in java which converted to C#.
+
+```csharp
+//Bad:
+public void pay(List<Employee> employees)
+{
+    foreach (var employee in employees)
+        if (employee.isPayDay())
+        {
+            var pay = employee.calculatePay();
+            employee.deliverPay(pay);
+        }
+}
+//Good:
+public void pay(List<Employee> employees)
+{
+    foreach (var employee in employees) payIfNecessary(employee);
+}
+private void payIfNecessary(Employee e)
+{
+    if (e.isPayDay())
+        calculateAndDeliverPay(e);
+}
+private void calculateAndDeliverPay(Employee employee)
+{
+    var pay = employee.calculatePay();
+    employee.deliverPay(pay);
+}
+```
+
 #### Sections within Functions
 
 If you have a function divided in sections like _declarations_, _initialization_ etc, it's a obvious symptom of the function is doing more than one thing. Functions that do one thing cannot be reasonably divided into sections.
