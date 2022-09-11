@@ -898,6 +898,61 @@ of TO paragraphs, each of which is describing the current level of abstraction a
 
 It turns out to be very difficult for programmers to learn to follow this rule and write functions that stay at a single level of abstraction. But learning this trick is also very important. It is the key to keeping functions short and making sure they do “one thing.” Making the code read like a top-down set of TO paragraphs is an effective technique for keeping the abstraction level consistent.
 
+First example is form [Nilanjan Dutta C# Corner](https://www.c-sharpcorner.com/article/clean-code-single-level-of-abstraction/)
+
+```csharp
+//Bad:
+public List<WeatherDataDto> GetWeatherReport()
+{
+    var weatherDtoList = new List<WeatherDataDto>();
+    var weatherReport = JsonConvert.DeserializeObject<WeatherDataModel[]>(File.ReadAllText("weather.json"));
+    if (weatherReport != null && weatherReport.Length > 0)
+        foreach (var report in weatherReport)
+        {
+            var weatherDto = new WeatherDataDto
+            {
+                City = report.city,
+                Temparature = report.temp,
+                ReportedBy = report.reportedBy
+            };
+            weatherDtoList.Add(weatherDto);
+        }
+    return weatherDtoList;
+}
+//Good:
+public List<WeatherDataDto> GetWeatherReport()
+{
+    var weatherDtoList = new List<WeatherDataDto>();
+    var weatherReport = ReadWeatherReport();
+    if (IsValidWeatherReport(weatherReport)) MapToReportDto(weatherDtoList, weatherReport);
+    return weatherDtoList;
+}
+
+private static WeatherDataModel[] ReadWeatherReport()
+{
+    return JsonConvert.DeserializeObject<WeatherDataModel[]>(File.ReadAllText("weather.json"));
+}
+
+private static bool IsValidWeatherReport(WeatherDataModel[] weatherReport)
+{
+    return weatherReport != null && weatherReport.Length > 0;
+}
+
+private static void MapToReportDto(List<WeatherDataDto> weatherDtoList, WeatherDataModel[] weatherReport)
+{
+    foreach (var report in weatherReport)
+    {
+        var weatherDto = new WeatherDataDto
+        {
+            City = report.city,
+            Temparature = report.temp,
+            ReportedBy = report.reportedBy
+        };
+        weatherDtoList.Add(weatherDto);
+    }
+}
+```
+
 ### Switch Statements
 
 It’s hard to make a small switch statement. 6 Even a switch statement with only two cases is larger than I’d like a single block or function to be. It’s also hard to make a switch statement that does one thing. By their nature, switch statements always do N things. Unfortunately we can’t always avoid switch statements, but we can make sure that each switch statement is buried in a low-level class and is never repeated. We do this, of course, with polymorphism.

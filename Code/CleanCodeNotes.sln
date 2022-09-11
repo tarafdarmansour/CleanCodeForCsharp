@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlocksandIndenting", "src\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoOneThing", "src\Functions\DoOneThing\DoOneThing.csproj", "{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneLevelofAbstractionperFunction", "src\Functions\OneLevelofAbstractionperFunction\OneLevelofAbstractionperFunction.csproj", "{33584E2B-E1D1-4FF1-BA1C-19710336E1E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33584E2B-E1D1-4FF1-BA1C-19710336E1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33584E2B-E1D1-4FF1-BA1C-19710336E1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33584E2B-E1D1-4FF1-BA1C-19710336E1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33584E2B-E1D1-4FF1-BA1C-19710336E1E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +154,7 @@ Global
 		{58B82271-8DFC-4BBF-BC8F-92CDCC4903FD} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 		{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 		{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
+		{33584E2B-E1D1-4FF1-BA1C-19710336E1E3} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}
