@@ -884,7 +884,7 @@ In order to make sure our functions are doing "one thing", we need to make sure 
 
 #### Reading Code from Top to Bottom: _The Stepdown Rule_
 
-We want the code to read like a top-down narrative. 5 We want every function to be followed by those at the next level of abstraction so that we can read the program, descending one level of abstraction at a time as we read down the list of functions.
+We want the code to read like a top-down narrative. We want every function to be followed by those at the next level of abstraction so that we can read the program, descending one level of abstraction at a time as we read down the list of functions.
 
 To say this differently, we want to be able to read the program as though it were a set
 of TO paragraphs, each of which is describing the current level of abstraction and referencing subsequent TO paragraphs at the next level down.
@@ -955,7 +955,47 @@ private static void MapToReportDto(List<WeatherDataDto> weatherDtoList, WeatherD
 
 ### Switch Statements
 
-It’s hard to make a small switch statement. 6 Even a switch statement with only two cases is larger than I’d like a single block or function to be. It’s also hard to make a switch statement that does one thing. By their nature, switch statements always do N things. Unfortunately we can’t always avoid switch statements, but we can make sure that each switch statement is buried in a low-level class and is never repeated. We do this, of course, with polymorphism.
+It’s hard to make a small switch statement. Even a switch statement with only two cases is larger than I’d like a single block or function to be. It’s also hard to make a switch statement that does one thing. By their nature, switch statements always do N things. Unfortunately we can’t always avoid switch statements, but we can make sure that each switch statement is buried in a low-level class and is never repeated. We do this, of course, with polymorphism.
+
+Here is an example from [stackoverflow](https://stackoverflow.com/questions/61568293/refactoring-to-factory-method) that convert a switch statement to Factory method.
+
+```csharp
+//Bad:
+public static IService CreateService(string path, ILogger log, IConfig mappingConfig)
+{
+    switch (path)
+    {
+        case ServicePath.service1:
+            return new service1(log, mappingConfig);
+        case ServicePath.service2:
+            return new service2(log, mappingConfig);
+        case ServicePath.service3:
+            return new service3(log, mappingConfig);
+        case ServicePath.service4:
+            return new service4(log, mappingConfig);
+    }
+
+    return new notImpelmented(log, mappingConfig);
+}
+//Good:
+private readonly Dictionary<string, Func<ILogger, IConfig, IService>> _map;
+
+public GoodServiceFactory()
+{
+    _map = new Dictionary<string, Func<ILogger, IConfig, IService>>();
+    _map.Add(ServicePath.service1, (log, mappingConfig) => new service1(log, mappingConfig));
+    _map.Add(ServicePath.service2, (log, mappingConfig) => new service2(log, mappingConfig));
+    _map.Add(ServicePath.service3, (log, mappingConfig) => new service3(log, mappingConfig));
+    _map.Add(ServicePath.service4, (log, mappingConfig) => new service4(log, mappingConfig));
+}
+
+public IService CreateService(string path, ILogger log, IConfig mappingConfig)
+{
+    return _map.ContainsKey(path)
+        ? _map[path](log, mappingConfig)
+        : new notImpelmented(log, mappingConfig);
+}
+```
 
 ### Use Descriptive Names
 
