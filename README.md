@@ -953,6 +953,39 @@ private static void MapToReportDto(List<WeatherDataDto> weatherDtoList, WeatherD
 }
 ```
 
+Second example is form [principles-wiki](http://principles-wiki.net/principles:single_level_of_abstraction)
+
+```csharp
+//Bad:
+public List<ResultDto> buildResult(List<ResultEntity> resultSet)
+{
+    var result = new List<ResultDto>();
+    foreach (var entity in resultSet)
+    {
+        var dto = new ResultDto();
+        dto.setShoeSize(entity.getShoeSize());
+        dto.setNumberOfEarthWorms(entity.getNumberOfEarthWorms());
+        dto.setAge(_dateHelper.computeAge(entity.getBirthday()));
+        result.Add(dto);
+    }
+    return result;
+}
+//Good:
+public List<ResultDto> buildResult(List<ResultEntity> resultSet)
+{
+    return resultSet.Select(toDto).ToList();
+}
+
+private ResultDto toDto(ResultEntity entity)
+{
+    var dto = new ResultDto();
+    dto.setShoeSize(entity.getShoeSize());
+    dto.setNumberOfEarthWorms(entity.getNumberOfEarthWorms());
+    dto.setAge(_dateHelper.computeAge(entity.getBirthday()));
+    return dto;
+}
+```
+
 ### Switch Statements
 
 It’s hard to make a small switch statement. Even a switch statement with only two cases is larger than I’d like a single block or function to be. It’s also hard to make a switch statement that does one thing. By their nature, switch statements always do N things. Unfortunately we can’t always avoid switch statements, but we can make sure that each switch statement is buried in a low-level class and is never repeated. We do this, of course, with polymorphism.
