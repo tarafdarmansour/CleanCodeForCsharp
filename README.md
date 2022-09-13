@@ -1040,6 +1040,15 @@ Don’t be afraid to make a name long. A long descriptive name is better than a 
 
 Choosing descriptive names will clarify the design of the module in your mind and help you to improve it. It is not at all uncommon that hunting for a good name results in a favorable restructuring of the code.
 
+Here is some descriptive function name from past codes.
+
+```csharp
+GetWeatherReport()
+ReadWeatherReport()
+IsValidWeatherReport(WeatherDataModel[] weatherReport)
+MapToReportDto(List<WeatherDataDto> weatherDtoList, WeatherDataModel[] weatherReport)
+```
+
 ### Function arguments
 
 The ideal number of arguments for a function is zero (niladic). Next comes one (monadic), followed closely by two (dyadic). Three arguments (triadic) should be avoided where possible. More than three (polyadic) requires very special justification—and then shouldn’t be used anyway.
