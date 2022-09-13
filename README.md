@@ -1065,6 +1065,34 @@ There are two very common reasons to pass a single argument into a function. You
 
 Flag arguments are ugly. Passing a boolean into a function is a truly terrible practice. It immediately complicates the signature of the method, loudly proclaiming that this function does more than one thing. It does one thing if the flag is `true` and another if the flag is `false`!
 
+```csharp
+//Bad:
+public Booking Book(Customer aCustomer, bool isPremium)
+{
+    if (isPremium)
+        doforPremium();
+    // logic for premium book
+    else
+        doforNotPremium();
+    // logic for regular booking
+    throw new NotImplementedException();
+}
+//Good:
+public Booking regularBook(Customer aCustomer)
+{
+    doforNotPremium();
+    // logic for regular booking
+    throw new NotImplementedException();
+}
+
+public Booking premiumBook(Customer aCustomer)
+{
+    doforPremium();
+    // logic for premium book
+    throw new NotImplementedException();
+}
+```
+
 #### Dyadic Functions
 
 A function with two arguments is harder to understand than a monadic function. For example, `writeField(name)` is easier to understand than `writeField(output-Stream, name)`
