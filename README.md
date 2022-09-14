@@ -1095,7 +1095,9 @@ public Booking premiumBook(Customer aCustomer)
 
 #### Dyadic Functions
 
-A function with two arguments is harder to understand than a monadic function. For example, `writeField(name)` is easier to understand than `writeField(output-Stream, name)`
+> A function with two arguments is harder to understand than a monadic function.
+
+For example, `writeField(name)` is easier to understand than `writeField(output-Stream, name)`
 
 There are times, of course, where two arguments are appropriate. For example, `Point p = new Point(0,0);` is perfectly reasonable. Cartesian points naturally take two arguments.
 
@@ -1105,19 +1107,18 @@ Dyads aren’t evil, and you will certainly have to write them. However, you sho
 
 #### Triads
 
-Functions that take three arguments are significantly harder to understand than dyads. The issues of ordering, pausing, and ignoring are more than doubled. I suggest you think very carefully before creating a triad.
+Functions that take three arguments are significantly harder to understand than dyads. The issues of ordering, pausing, and ignoring are more than doubled.
+
+> I suggest you think very carefully before creating a triad.
 
 #### Argument Objects
 
 Compare:
 
-```java
+```csharp
+//Bad:
 Circle makeCircle(double x, double y, double radius);
-```
-
-vs
-
-```java
+//Good:
 Circle makeCircle(Point center, double radius);
 ```
 
