@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchStatements", "src\Fun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagArguments", "src\Functions\FlagArguments\FlagArguments.csproj", "{C085922C-92B4-4470-A61D-09F796425AA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionArguments", "src\Functions\FunctionArguments\FunctionArguments.csproj", "{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{C085922C-92B4-4470-A61D-09F796425AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C085922C-92B4-4470-A61D-09F796425AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C085922C-92B4-4470-A61D-09F796425AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,6 +175,7 @@ Global
 		{33584E2B-E1D1-4FF1-BA1C-19710336E1E3} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 		{F3DB351D-5602-4306-B651-304E47E963D8} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 		{C085922C-92B4-4470-A61D-09F796425AA6} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
+		{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}

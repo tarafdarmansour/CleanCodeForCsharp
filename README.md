@@ -1111,6 +1111,28 @@ Functions that take three arguments are significantly harder to understand than 
 
 > I suggest you think very carefully before creating a triad.
 
+Here is an example from [Clean Code concepts adapted for .NET/.NET Core](https://github.com/thangchung/clean-code-dotnet)
+
+```csharp
+//Bad:
+public void CreateMenu(string title, string body, string buttonText, bool cancellable)
+{
+    // ...
+}
+//Good:
+public class MenuConfig
+{
+    public string Title { get; set; }
+    public string Body { get; set; }
+    public string ButtonText { get; set; }
+    public bool Cancellable { get; set; }
+}
+public void CreateMenu(MenuConfig config)
+{
+    // ...
+}
+```
+
 #### Argument Objects
 
 Compare:
