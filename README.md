@@ -1135,8 +1135,6 @@ public void CreateMenu(MenuConfig config)
 
 #### Argument Objects
 
-Compare:
-
 ```csharp
 //Bad:
 Circle makeCircle(double x, double y, double radius);
@@ -1161,6 +1159,28 @@ Functions should either do something or answer something, but not both. Either y
 ### Prefer Exceptions to Returning Error Codes
 
 Returning error codes from command functions is a subtle violation of command query separation.
+
+Here is an example from [refactoring.guru](https://refactoring.guru/replace-error-code-with-exception)
+
+```csharp
+//Bad:
+public int Withdraw(int amount)
+{
+    if (amount > _balance)
+    {
+        return -1;
+    }
+
+    _balance -= amount;
+    return 0;
+}
+//Good:
+public void Withdraw(int amount)
+{
+    if (amount > _balance) throw new BalanceException();
+    _balance -= amount;
+}
+```
 
 ### Don't Repeat Yourself
 
