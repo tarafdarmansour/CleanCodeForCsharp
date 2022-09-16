@@ -6,10 +6,7 @@ public class BadAccount
 
     public int Withdraw(int amount)
     {
-        if (amount > _balance)
-        {
-            return -1;
-        }
+        if (amount > _balance) return -1;
 
         _balance -= amount;
         return 0;

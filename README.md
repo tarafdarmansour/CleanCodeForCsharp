@@ -1156,6 +1156,32 @@ In general output arguments should be avoided. If your function must change the 
 
 Functions should either do something or answer something, but not both. Either your function should change the state of an object, or it should return some information about that object. Doing both often leads to confusion.
 
+Here is my first example from [EricBackhage.NET](https://ericbackhage.net/c/cleaner-code-with-command-query-separation/)
+
+```csharp
+//Bad:
+private readonly object _lock = new();
+private int _x;
+public int IncrementAndGetValue()
+{
+    lock (_lock)
+    {
+        _x++;
+        return _x;
+    }
+}
+//Good:
+private int _x;
+public void Increment()
+{
+    _x++;
+}
+public int GetValue()
+{
+    return _x;
+}
+```
+
 ### Prefer Exceptions to Returning Error Codes
 
 Returning error codes from command functions is a subtle violation of command query separation.

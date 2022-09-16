@@ -43,17 +43,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmallAndSmaller", "src\Func
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlocksandIndenting", "src\Functions\BlocksandIndenting\BlocksandIndenting.csproj", "{92BE577A-4C5C-4578-A6AA-54B5A9F5D5CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoOneThing", "src\Functions\DoOneThing\DoOneThing.csproj", "{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoOneThing", "src\Functions\DoOneThing\DoOneThing.csproj", "{B7BBAB24-E56F-4B0F-BD9B-9AEC2982159D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneLevelofAbstractionperFunction", "src\Functions\OneLevelofAbstractionperFunction\OneLevelofAbstractionperFunction.csproj", "{33584E2B-E1D1-4FF1-BA1C-19710336E1E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneLevelofAbstractionperFunction", "src\Functions\OneLevelofAbstractionperFunction\OneLevelofAbstractionperFunction.csproj", "{33584E2B-E1D1-4FF1-BA1C-19710336E1E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchStatements", "src\Functions\SwitchStatements\SwitchStatements.csproj", "{F3DB351D-5602-4306-B651-304E47E963D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwitchStatements", "src\Functions\SwitchStatements\SwitchStatements.csproj", "{F3DB351D-5602-4306-B651-304E47E963D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlagArguments", "src\Functions\FlagArguments\FlagArguments.csproj", "{C085922C-92B4-4470-A61D-09F796425AA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlagArguments", "src\Functions\FlagArguments\FlagArguments.csproj", "{C085922C-92B4-4470-A61D-09F796425AA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionArguments", "src\Functions\FunctionArguments\FunctionArguments.csproj", "{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionArguments", "src\Functions\FunctionArguments\FunctionArguments.csproj", "{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreferExceptionstoReturningErrorCodes", "src\Functions\PreferExceptionstoReturningErrorCodes\PreferExceptionstoReturningErrorCodes.csproj", "{C7B7851A-BCE6-4116-82B2-A628CF814C6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PreferExceptionstoReturningErrorCodes", "src\Functions\PreferExceptionstoReturningErrorCodes\PreferExceptionstoReturningErrorCodes.csproj", "{C7B7851A-BCE6-4116-82B2-A628CF814C6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandQuerySeparation", "src\Functions\CommandQuerySeparation\CommandQuerySeparation.csproj", "{E8A4497E-6418-4F4B-BD21-EBB009892038}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{C7B7851A-BCE6-4116-82B2-A628CF814C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7B7851A-BCE6-4116-82B2-A628CF814C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7B7851A-BCE6-4116-82B2-A628CF814C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A4497E-6418-4F4B-BD21-EBB009892038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A4497E-6418-4F4B-BD21-EBB009892038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A4497E-6418-4F4B-BD21-EBB009892038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A4497E-6418-4F4B-BD21-EBB009892038}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,6 +189,7 @@ Global
 		{C085922C-92B4-4470-A61D-09F796425AA6} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 		{78B4FCD4-7FF5-4BF4-872D-59E8DC648FF6} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 		{C7B7851A-BCE6-4116-82B2-A628CF814C6E} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
+		{E8A4497E-6418-4F4B-BD21-EBB009892038} = {D96FCC75-CFC3-43CE-A56D-408C0C4DD99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}
