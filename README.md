@@ -1182,6 +1182,73 @@ public int GetValue()
 }
 ```
 
+And here is my second example from [Mihai Sandu on Level Up Coding](https://levelup.gitconnected.com/how-to-improve-your-code-readability-with-cqs-b54b43ca9fa5)
+
+```csharp
+//Bad:
+public class BadIceCream
+{
+    private int currentTemperature; //Celsius degrees
+    private readonly List<int> temperatureReadings = new();
+
+    public int SetTemperature(int temperature)
+    {
+        if (temperature > 10) temperature = 10;
+        temperatureReadings.Add(currentTemperature);
+        currentTemperature = temperature;
+        return currentTemperature;
+    }
+
+    public List<int> GetTemperatureReadings()
+    {
+        temperatureReadings.Add(currentTemperature);
+        if (currentTemperature > 10) Alert(currentTemperature);
+
+        return temperatureReadings;
+    }
+
+    public void Alert(int temperature)
+    {
+        Console.WriteLine($"Ice Cream Machine too warm. Temperature: {temperature}");
+    }
+}
+//Good:
+public class GoodIceCream
+{
+    private int currentTemperature; //Celsius degrees
+    private readonly List<int> temperatureReadings = new();
+
+    public void SetTemperature(int temperature) // commands should return void
+    {
+        if (temperature > 10) temperature = 10;
+        temperatureReadings.Add(currentTemperature);
+        currentTemperature = temperature;
+    }
+
+    public int GetCurrentTemperature() //add a new method to return the current temperature
+    {
+        return currentTemperature;
+    }
+
+    public void StartMonitor()
+    {
+        //start an async job that will monitor the current temperature and send an alert
+        if (currentTemperature > 10) Alert(currentTemperature);
+    }
+
+    public List<int> GetTemperatureReadings() //removed call to alert
+    {
+        temperatureReadings.Add(currentTemperature);
+        return temperatureReadings;
+    }
+
+    public void Alert(int temperature)
+    {
+        Console.WriteLine($"Ice Cream Machine too warm. Temperature: {temperature}");
+    }
+}
+```
+
 ### Prefer Exceptions to Returning Error Codes
 
 Returning error codes from command functions is a subtle violation of command query separation.
