@@ -1148,6 +1148,52 @@ Choosing good names for a function can go a long way toward explaining the inten
 
 This last is an example of the keyword form of a function name. Using this form we encode the names of the arguments into the function name. For example, `assertEquals` might be better written as `assertExpectedEqualsActual(expected, actual)`. This strongly mitigates the problem of having to remember the ordering of the arguments.
 
+### Have No Side Effects
+
+Side effects are lies. Your function promises to do one thing, but it also does other hidden things. Sometimes it will make unexpected changes to the variables of its own class. Sometimes it will make them to the parameters passed into the function or to system globals. In either case they are devious and damaging mistruths that often result in strange temporal couplings and order dependencies.
+
+```csharp
+//Bad:
+public bool CheckUser(string userName, string password)
+{
+    var user = _userService.FindByName(userName);
+    if (user != null)
+    {
+        var codedPharase = user.GetPhraseEncodedByPassword();
+        var pharase = _cryptographer.Decrypt(codedPharase, password);
+        if (pharase == "Valid")
+        {
+            _session.Initialize();
+            return true;
+        }
+    }
+    return false;
+}
+//Good:
+public ActionResult Login(RequestLogin requestLogin)
+{
+    if (CheckUser(requestLogin.UserName, requestLogin.Password))
+    {
+        _session.Initialize();
+        return new ActionResult("Success", 0);
+    }
+    return new ActionResult("Fail", 1);
+}
+
+private bool CheckUser(string userName, string password)
+{
+    var user = _userService.FindByName(userName);
+    if (user != null)
+    {
+        var codedPharase = user.GetPhraseEncodedByPassword();
+        var pharase = _cryptographer.Decrypt(codedPharase, password);
+        if (pharase == "Valid")
+            _session.Initialize();
+    }
+    return false;
+}
+```
+
 ### Output Arguments
 
 In general output arguments should be avoided. If your function must change the state of something, have it change the state of its owning object.
