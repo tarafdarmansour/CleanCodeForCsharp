@@ -1329,6 +1329,10 @@ public void Withdraw(int amount)
 }
 ```
 
+### Extract Try/Catch Blocks
+
+`Try/catch` blocks are ugly in their own right. They confuse the structure of the code and mix error processing with normal processing. So it is better to extract the bodies of the `try` and `catch` blocks out into functions of their own.
+
 ### Don't Repeat Yourself
 
 Duplication may be the root of all evil in software. Many principles and practices have been created for the purpose of controlling or eliminating it.
