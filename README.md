@@ -1198,6 +1198,14 @@ private bool CheckUser(string userName, string password)
 
 In general output arguments should be avoided. If your function must change the state of something, have it change the state of its owning object.
 
+```csharp
+//Bad:
+public void appendFooter(StringBuilder report)
+//Good:
+public void appendFooter(this StringBuilder report)
+report.appendFooter();
+```
+
 ### Command Query Separation
 
 Functions should either do something or answer something, but not both. Either your function should change the state of an object, or it should return some information about that object. Doing both often leads to confusion.
