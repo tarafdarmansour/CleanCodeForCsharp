@@ -1411,14 +1411,11 @@ Clear and expressive code with few comments is far superior to cluttered and com
 
 ### Explain Yourself in Code
 
-```java
+```csharp
+//Bad:
 // Check to see if the employee is eligible for full benefits
 if ((employee.flags & HOURLY_FLAG) && (employee.age > 65))
-```
-
-vs
-
-```java
+//Good:
 if (employee.isEligibleForFullBenefits())
 ```
 
