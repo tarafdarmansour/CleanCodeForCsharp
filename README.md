@@ -1377,6 +1377,14 @@ private void logError(Exception e)
 
 ```
 
+### Error Handling Is One Thing
+
+Functions should do one thing.
+
+> Error handing is one thing.
+
+Thus, a function that handles errors should do nothing else.
+
 ### Don't Repeat Yourself
 
 Duplication may be the root of all evil in software. Many principles and practices have been created for the purpose of controlling or eliminating it.
