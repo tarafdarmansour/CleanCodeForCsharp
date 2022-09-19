@@ -1431,9 +1431,12 @@ Sometimes our corporate coding standards force us to write certain comments for 
 
 It is sometimes useful to provide basic information with a comment. For example, consider this comment that explains the return value of an abstract method:
 
-```java
+```csharp
+//Bad:
 // Returns an instance of the Responder being tested.
 protected abstract Responder responderInstance();
+//Good:
+protected abstract Responder responderBeingTested();
 ```
 
 A comment like this can sometimes be useful, but it is better to use the name of the function to convey the information where possible. For example, in this case the comment could be made redundant by renaming the function: `responderBeingTested`.
