@@ -1333,6 +1333,50 @@ public void Withdraw(int amount)
 
 `Try/catch` blocks are ugly in their own right. They confuse the structure of the code and mix error processing with normal processing. So it is better to extract the bodies of the `try` and `catch` blocks out into functions of their own.
 
+And Exmple, Here is the book example in our C#/
+
+```csharp
+//Bad:
+public void BadDeleteFunction(Page page)
+{
+    try
+    {
+        deletePage(page);
+        _registery.DeleteReference(page.name);
+        _congigService.DeleteKey(page.name.MakeKey());
+    }
+    catch (Exception e)
+    {
+        _logger.Log(e.Message);
+    }
+}
+//Good:
+public void GoodDeleteFunction(Page page)
+{
+    try
+    {
+        deletePageAndAllReferences(page);
+    }
+    catch (Exception e)
+    {
+        logError(e);
+    }
+}
+
+private void deletePageAndAllReferences(Page page)
+{
+    deletePage(page);
+    _registery.DeleteReference(page.name);
+    _congigService.DeleteKey(page.name.MakeKey());
+}
+
+private void logError(Exception e)
+{
+    _logger.Log(e.Message);
+}
+
+```
+
 ### Don't Repeat Yourself
 
 Duplication may be the root of all evil in software. Many principles and practices have been created for the purpose of controlling or eliminating it.
