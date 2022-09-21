@@ -1445,17 +1445,18 @@ A comment like this can sometimes be useful, but it is better to use the name of
 
 Sometimes a comment goes beyond just useful information about the implementation and provides the intent behind a decision. Example:
 
-```java
-public int compareTo(Object o)
+```csharp
+public int compareTo(object o)
 {
-  if(o instanceof WikiPagePath)
-  {
-    WikiPagePath p = (WikiPagePath) o;
-    String compressedName = StringUtil.join(names, "");
-    String compressedArgumentName = StringUtil.join(p.names, "");
-    return compressedName.compareTo(compressedArgumentName);
-  }
-  return 1; // we are greater because we are the right type.
+    if (o.GetType() == typeof(WikiPagePath))
+    {
+        var p = (WikiPagePath)o;
+        var compressedName = string.Join("", names);
+        var compressedArgumentName = string.Join("", p.names);
+        return compressedName.CompareTo(compressedArgumentName);
+    }
+
+    return 1; // we are greater because we are the right type.
 }
 ```
 
