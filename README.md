@@ -1427,6 +1427,12 @@ Some comments are necessary or beneficial. However the only truly good comment i
 
 Sometimes our corporate coding standards force us to write certain comments for legal reasons. For example, copyright and authorship statements are necessary and reasonable things to put into a comment at the start of each source file.
 
+```csharp
+//Good:
+// Copyright (C) 2003,2004,2005 by Object Mentor, Inc. All rights reserved.
+// Released under the terms of the GNU General Public License version 2 or later.
+```
+
 #### Informative Comments
 
 It is sometimes useful to provide basic information with a comment. For example, consider this comment that explains the return value of an abstract method:
@@ -1491,6 +1497,7 @@ public void testCompareTo()
 Sometimes it is useful to warn other programmers about certain consequences.
 
 ```java
+//TODO change to c#
 // Don't run unless you
 // have some time to kill.
 public void _testWithReallyBigFile() {
@@ -1509,6 +1516,7 @@ It is sometimes reasonable to leave “To do” notes in the form of //TODO comm
 following case, the TODO comment explains why the function has a degenerate implementation and what that function's future should be.
 
 ```java
+//TODO change to c#
 //TODO-MdM these are not needed
 // We expect this to go away when we do the checkout model
 protected VersionInfo makeVersion() throws Exception {
@@ -1523,6 +1531,7 @@ TODOs are jobs that the programmer thinks should be done, but for some reason ca
 A comment may be used to amplify the importance of something that may otherwise seem inconsequential.
 
 ```java
+//TODO change to c#
 String listItemContent = match.group(3).trim();
 // the trim is real important. It removes the starting
 // spaces that could cause the item to be recognized
