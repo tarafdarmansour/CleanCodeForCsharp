@@ -1553,6 +1553,7 @@ Most comments fall into this category. Usually they are crutches or excuses for 
 Plopping in a comment just because you feel you should or because the process requires it, is a hack. If you decide to write a comment, then spend the time necessary to make sure it is the best comment you can write. Example:
 
 ```java
+//TODO change to c#
 public void loadProperties() {
 
   try {
@@ -1570,15 +1571,22 @@ What does that comment in the catch block mean? Clearly meant something to the a
 
 #### Redundant Comments
 
-```java
+```csharp
+private bool closed;
 // Utility method that returns when this.closed is true. Throws an exception
 // if the timeout is reached.
-public synchronized void waitForClose(final long timeoutMillis) throws Exception {
-  if(!closed) {
-    wait(timeoutMillis);
-    if(!closed)
-      throw new Exception("MockResponseSender could not be closed");
-  }
+public void waitForClose(int timeoutMillis)
+{
+    if (!closed)
+    {
+        wait(timeoutMillis);
+        if (!closed)
+            throw new Exception("MockResponseSender could not be closed");
+    }
+}
+private void wait(int timeoutMillis)
+{
+    Task.Delay(timeoutMillis);
 }
 ```
 
