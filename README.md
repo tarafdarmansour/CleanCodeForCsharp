@@ -1601,6 +1601,7 @@ Sometimes, with all the best intentions, a programmer makes a statement in his c
 It is just plain silly to have a rule that says that every function must have a javadoc, or every variable must have a comment. Comments like this just clutter up the code, propagate lies, and lend to general confusion and disorganization.
 
 ```java
+//TODO change to c#
 /**
 *
 * @param title The title of the CD
@@ -1623,6 +1624,7 @@ public void addCD(String title, String author, int tracks, int durationInMinutes
 Sometimes people add a comment to the start of a module every time they edit it. Example:
 
 ```java
+//TODO change to c#
 * Changes (from 11-Oct-2001)
 * --------------------------
 * 11-Oct-2001 : Re-organised the class and moved it to new package com.jrefinery.date (DG);
@@ -1638,7 +1640,8 @@ Today we have source code control systems, we don't need this type of logs.
 
 The comments in the follow examples doesn't provides new information.
 
-```java
+```csharp
+//Bad:
 /**
 * Default constructor.
 */
@@ -1646,7 +1649,8 @@ protected AnnualDateRule() {
 }
 ```
 
-```java
+```csharp
+//Bad:
 /** The day of the month. */
 private int dayOfMonth;
 ```
@@ -1658,6 +1662,7 @@ Javadocs comments could enter in this category. Many times they are just redunda
 Example:
 
 ```java
+//TODO change to c#
 // does the module from the global list <mod> depend on the
 // subsystem we are part of?
 if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem()))
@@ -1666,6 +1671,7 @@ if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem()))
 vs
 
 ```java
+//TODO change to c#
 ArrayList moduleDependees = smodule.getDependSubsystems();
 String ourSubSystem = subSysMod.getSubSystem();
 if (moduleDependees.contains(ourSubSystem))
@@ -1675,7 +1681,8 @@ if (moduleDependees.contains(ourSubSystem))
 
 This type of comments are noising
 
-```java
+```csharp
+//Bad:
 // Actions //////////////////////////////////
 ```
 
@@ -1684,6 +1691,7 @@ This type of comments are noising
 Example:
 
 ```java
+//TODO change to c#
 public class wc {
   public static void main(String[] args) {
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -1725,6 +1733,7 @@ The VCS can manage this information instead.
 #### Commented-Out Code
 
 ```java
+//TODO change to c#
 InputStreamResponse response = new InputStreamResponse();
 response.setBody(formatter.getResultStream(), formatter.getByteCount());
 // InputStream resultsStream = formatter.getResultStream();
@@ -1738,7 +1747,8 @@ If you don't need anymore, please delete it, you can back later with your VCS if
 
 HTML in source code comments is an abomination, as you can tell by reading the code below.
 
-```java
+```csharp
+//Bad:
 /**
 * Task to run fit tests.
 * This task runs fitnesse tests and publishes the results.
@@ -1770,9 +1780,37 @@ If you must write a comment, then make sure it describes the code it appears nea
 
 Don't put interesting historical discussions or irrelevant descriptions of details into your comments.
 
+```csharp
+//Bad:
+/*
+ RFC 2045 - Multipurpose Internet Mail Extensions (MIME)
+ Part One: Format of Internet Message Bodies
+ section 6.8.  Base64 Content-Transfer-Encoding
+ The encoding process represents 24-bit groups of input bits as output
+ strings of 4 encoded characters. Proceeding from left to right, a
+ 24-bit input group is formed by concatenating 3 8-bit input groups.
+ These 24 bits are then treated as 4 concatenated 6-bit groups, each
+ of which is translated into a single digit in the base64 alphabet.
+ When encoding a bit stream via the base64 encoding, the bit stream
+ must be presumed to be ordered with the most-significant-bit first.
+ That is, the first bit in the stream will be the high-order bit in
+ the first 8-bit byte, and the eighth bit will be the low-order bit in
+ the first 8-bit byte, and so on.
+ */
+```
+
 #### Inobvious Connection
 
-The connection between a comment and the code it describes should be obvious. If you are going to the trouble to write a comment, then at least you'd like the reader to be able to look at the comment and the code and understand what the comment is talking about
+The connection between a comment and the code it describes should be obvious. If you are going to the trouble to write a comment, then at least you'd like the reader to be able to look at the comment and the code and understand what the comment is talking about.
+
+```csharp
+//Bad:
+/*
+* start with an array that is big enough to hold all the pixels
+* (plus filter bytes), and an extra 200 bytes for header info
+*/
+this.pngBytes = new byte[((this.width + 1) * this.height * 3) + 200];
+```
 
 #### Function Headers
 
