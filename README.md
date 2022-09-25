@@ -1496,17 +1496,16 @@ public void testCompareTo()
 
 Sometimes it is useful to warn other programmers about certain consequences.
 
-```java
-//TODO change to c#
+```csharp
+//Good:
 // Don't run unless you
 // have some time to kill.
-public void _testWithReallyBigFile() {
-  writeLinesToFile(10000000);
-  response.setBody(testFile);
-  response.readyToSend(this);
-  String responseString = output.toString();
-  assertSubString("Content-Length: 1000000000", responseString);
-  assertTrue(bytesSent > 1000000000);
+public void _testWithReallyBigFile()
+{
+    writeLinesToFile(10000000);
+    string responseString = output.toString();
+    assertSubString("Content-Length: 1000000000", responseString);
+    assertTrue(bytesSent > 1000000000);
 }
 ```
 
@@ -1515,12 +1514,13 @@ public void _testWithReallyBigFile() {
 It is sometimes reasonable to leave “To do” notes in the form of //TODO comments. In the
 following case, the TODO comment explains why the function has a degenerate implementation and what that function's future should be.
 
-```java
-//TODO change to c#
+```csharp
+//Good:
 //TODO-MdM these are not needed
 // We expect this to go away when we do the checkout model
-protected VersionInfo makeVersion() throws Exception {
-  return null;
+protected  VersionInfo makeVersion()
+{
+    return null;
 }
 ```
 
@@ -1530,14 +1530,16 @@ TODOs are jobs that the programmer thinks should be done, but for some reason ca
 
 A comment may be used to amplify the importance of something that may otherwise seem inconsequential.
 
-```java
-//TODO change to c#
-String listItemContent = match.group(3).trim();
-// the trim is real important. It removes the starting
-// spaces that could cause the item to be recognized
-// as another list.
-new ListItemWidget(this, listItemContent, this.level + 1);
-return buildList(text.substring(match.end()));
+```csharp
+//Good:
+string[] ExtractNameList(string s)
+{
+    // the trim is real important. It removes the starting
+    // spaces that could cause the item to be recognized
+    // as another name.
+    return s.Trim().Split(' ');
+}
+
 ```
 
 #### Javadocs in Public APIs
