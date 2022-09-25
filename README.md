@@ -1554,12 +1554,12 @@ Most comments fall into this category. Usually they are crutches or excuses for 
 
 Plopping in a comment just because you feel you should or because the process requires it, is a hack. If you decide to write a comment, then spend the time necessary to make sure it is the best comment you can write. Example:
 
-```java
-//TODO change to c#
+```csharp
+//Bad:
 public void loadProperties() {
 
   try {
-    String propertiesPath = propertiesLocation + "/" + PROPERTIES_FILE;
+    string propertiesPath = propertiesLocation + "/" + PROPERTIES_FILE;
     FileInputStream propertiesStream = new FileInputStream(propertiesPath);
     loadedProperties.load(propertiesStream);
   }
@@ -1574,6 +1574,7 @@ What does that comment in the catch block mean? Clearly meant something to the a
 #### Redundant Comments
 
 ```csharp
+//Bad:
 private bool closed;
 // Utility method that returns when this.closed is true. Throws an exception
 // if the timeout is reached.
@@ -1602,22 +1603,23 @@ Sometimes, with all the best intentions, a programmer makes a statement in his c
 
 It is just plain silly to have a rule that says that every function must have a javadoc, or every variable must have a comment. Comments like this just clutter up the code, propagate lies, and lend to general confusion and disorganization.
 
-```java
-//TODO change to c#
-/**
-*
-* @param title The title of the CD
-* @param author The author of the CD
-* @param tracks The number of tracks on the CD
-* @param durationInMinutes The duration of the CD in minutes
-*/
-public void addCD(String title, String author, int tracks, int durationInMinutes) {
-  CD cd = new CD();
-  cd.title = title;
-  cd.author = author;
-  cd.tracks = tracks;
-  cd.duration = duration;
-  cdList.add(cd);
+```csharp
+//Bad:
+/// <summary>
+///     Adding a new cd to cd list
+/// </summary>
+/// <param name="title">The title of the CD</param>
+/// <param name="author">The author of the CD</param>
+/// <param name="tracks">The number of tracks on the CD</param>
+/// <param name="durationInMinutes">The duration of the CD in minutes</param>
+public void addCD(string title, string author, int tracks, int durationInMinutes)
+{
+    var cd = new CD();
+    cd.Title = title;
+    cd.Author = author;
+    cd.Tracks = tracks;
+    cd.Duration = durationInMinutes;
+    CDs.Add(cd);
 }
 ```
 
