@@ -1627,15 +1627,16 @@ public void addCD(string title, string author, int tracks, int durationInMinutes
 
 Sometimes people add a comment to the start of a module every time they edit it. Example:
 
-```java
-//TODO change to c#
-* Changes (from 11-Oct-2001)
+```csharp
+//Bad:
+/* Changes (from 11-Oct-2001)
 * --------------------------
 * 11-Oct-2001 : Re-organised the class and moved it to new package com.jrefinery.date (DG);
 * 05-Nov-2001 : Added a getDescription() method, and eliminated NotableDate class (DG);
 * 12-Nov-2001 : IBD requires setDescription() method, now that NotableDate class is gone (DG); Changed getPreviousDayOfWeek(),
 getFollowingDayOfWeek() and getNearestDayOfWeek() to correct bugs (DG);
 * 05-Dec-2001 : Fixed bug in SpreadsheetDate class (DG);
+*/
 ```
 
 Today we have source code control systems, we don't need this type of logs.
@@ -1666,16 +1667,11 @@ Javadocs comments could enter in this category. Many times they are just redunda
 Example:
 
 ```java
-//TODO change to c#
+//Bad:
 // does the module from the global list <mod> depend on the
 // subsystem we are part of?
 if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem()))
-```
-
-vs
-
-```java
-//TODO change to c#
+//Good:
 ArrayList moduleDependees = smodule.getDependSubsystems();
 String ourSubSystem = subSysMod.getSubSystem();
 if (moduleDependees.contains(ourSubSystem))
