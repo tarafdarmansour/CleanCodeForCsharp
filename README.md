@@ -1732,8 +1732,8 @@ The VCS can manage this information instead.
 
 #### Commented-Out Code
 
-```java
-//TODO change to c#
+```csharp
+//Bad:
 InputStreamResponse response = new InputStreamResponse();
 response.setBody(formatter.getResultStream(), formatter.getByteCount());
 // InputStream resultsStream = formatter.getResultStream();
