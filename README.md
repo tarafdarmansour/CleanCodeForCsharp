@@ -1690,34 +1690,34 @@ This type of comments are noising
 
 Example:
 
-```java
-//TODO change to c#
-public class wc {
-  public static void main(String[] args) {
-    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    String line;
-    int lineCount = 0;
-    int charCount = 0;
-    int wordCount = 0;
-    try {
-      while ((line = in.readLine()) != null) {
-        lineCount++;
-        charCount += line.length();
-        String words[] = line.split("\\W");
-        wordCount += words.length;
+```csharp
+//Bad:
+public static void main(string[] args)
+{
+    using var textReader = new StreamReader(path: "c:\\a.txt");
+    string line;
+    var lineCount = 0;
+    var charCount = 0;
+    var wordCount = 0;
+    try
+    {
+        while ((line = textReader.ReadLine()) != null)
+        {
+            lineCount++;
+            charCount += line.Length;
+            var words = line.Split(" ");
+            wordCount += words.Length;
+        } //while
 
-      } //while
-      System.out.println("wordCount = " + wordCount);
-      System.out.println("lineCount = " + lineCount);
-      System.out.println("charCount = " + charCount);
-
+        Console.WriteLine("wordCount = " + wordCount);
+        Console.WriteLine("lineCount = " + lineCount);
+        Console.WriteLine("charCount = " + charCount);
     } // try
-    catch (IOException e) {
-      System.err.println("Error:" + e.getMessage());
-
+    catch (IOException e)
+    {
+        Console.WriteLine("Error:" + e.Message);
     } //catch
-
-  } //main
+} //main
 ```
 
 You could break the code in small functions instead to use this type of comments.
