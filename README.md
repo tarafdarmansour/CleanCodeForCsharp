@@ -1832,49 +1832,82 @@ Code formatting is important. It is too important to ignore and it is too import
 
 This concept consist in how to you separate concepts in your code, In the next example we can appreciate it.
 
-```java
-package fitnesse.wikitext.widgets;
+```csharp
+//Bad:
+public static class AutofacConfigurationExtensions
+{
+    public static void AddServices(this ContainerBuilder containerBuilder)
+    {
+        var applicationAssembly = typeof(LoginUserQuery).Assembly;
+        var dataAssembly = typeof(UserRepos).Assembly;
+        var modelAssembly = typeof(User).Assembly;
+        containerBuilder.RegisterAssemblyTypes(dataAssembly, applicationAssembly, modelAssembly)
+            .AssignableTo<IScopedDependency>().AsImplementedInterfaces().AsSelf().InstancePerLifetimeScope();
+        containerBuilder.RegisterAssemblyTypes(dataAssembly, applicationAssembly, modelAssembly)
+            .AssignableTo<ITransientDependency>().AsImplementedInterfaces().AsSelf().InstancePerDependency();
+        containerBuilder.RegisterAssemblyTypes(dataAssembly, applicationAssembly, modelAssembly)
+            .AssignableTo<ISingletonDependency>().AsImplementedInterfaces().AsSelf().SingleInstance();
+    }
+    public static void AddMediator(this ContainerBuilder containerBuilder)
+    {
+        containerBuilder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope();
+        containerBuilder.Register<ServiceFactory>(context =>
+        {
+            var c = context.Resolve<IComponentContext>();
+            return t => c.Resolve(t);
+        });
+        containerBuilder.RegisterAssemblyTypes(typeof(LoginUserQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
+    }
+}
+//Good:
+public static class AutofacConfigurationExtensions
+{
+    public static void AddServices(this ContainerBuilder containerBuilder)
+    {
+        var applicationAssembly = typeof(LoginUserQuery).Assembly;
+        var dataAssembly = typeof(UserRepos).Assembly;
+        var modelAssembly = typeof(User).Assembly;
 
-import java.util.regex.*;
+        containerBuilder.RegisterAssemblyTypes(dataAssembly, applicationAssembly, modelAssembly)
+            .AssignableTo<IScopedDependency>()
+            .AsImplementedInterfaces()
+            .AsSelf()
+            .InstancePerLifetimeScope();
 
-public class BoldWidget extends ParentWidget {
-  public static final String REGEXP = "'''.+?'''";
-  private static final Pattern pattern = Pattern.compile("'''(.+?)'''",
-      Pattern.MULTILINE + Pattern.DOTALL
-      );
+        containerBuilder.RegisterAssemblyTypes(dataAssembly, applicationAssembly, modelAssembly)
+            .AssignableTo<ITransientDependency>()
+            .AsImplementedInterfaces()
+            .AsSelf()
+            .InstancePerDependency();
 
-  public BoldWidget(ParentWidget parent, String text) throws Exception {
-    super(parent);
-    Matcher match = pattern.matcher(text);
-    match.find();
-    addChildWidgets(match.group(1));
-  }
+        containerBuilder.RegisterAssemblyTypes(dataAssembly, applicationAssembly, modelAssembly)
+            .AssignableTo<ISingletonDependency>()
+            .AsImplementedInterfaces()
+            .AsSelf()
+            .SingleInstance();
+    }
 
-  public String render() throws Exception {
-    StringBuffer html = new StringBuffer("<b>");
-    html.append(childHtml()).append("</b>");
-    return html.toString();
-  }
+    public static void AddMediator(this ContainerBuilder containerBuilder)
+    {
+        containerBuilder
+            .RegisterType<Mediator>()
+            .As<IMediator>()
+            .InstancePerLifetimeScope();
+
+        containerBuilder.Register<ServiceFactory>(context =>
+        {
+            var c = context.Resolve<IComponentContext>();
+            return t => c.Resolve(t);
+        });
+
+        containerBuilder
+            .RegisterAssemblyTypes(typeof(LoginUserQuery).GetTypeInfo().Assembly)
+            .AsImplementedInterfaces();
+    }
 }
 ```
 
-```java
-package fitnesse.wikitext.widgets;
-import java.util.regex.*;
-public class BoldWidget extends ParentWidget {
-  public static final String REGEXP = "'''.+?'''";
-  private static final Pattern pattern = Pattern.compile("'''(.+?)'''",
-  Pattern.MULTILINE + Pattern.DOTALL);
-  public BoldWidget(ParentWidget parent, String text) throws Exception {
-    super(parent);
-    Matcher match = pattern.matcher(text); match.find(); addChildWidgets(match.group(1));
-  }
-  public String render() throws Exception { StringBuffer html = new StringBuffer("<b>"); html.append(childHtml()).append("</b>"); return html.toString();
-  }
-}
-```
-
-As you can see, the readability of the first example is greater than that of the second.
+As you can see, the readability of the second example is greater than that of the second.
 
 #### Vertical Density
 
