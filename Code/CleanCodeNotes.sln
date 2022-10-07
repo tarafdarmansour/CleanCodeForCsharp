@@ -67,11 +67,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExplanationofIntent", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clariﬁcation", "src\Comments\Clariﬁcation\Clariﬁcation.csproj", "{89B924B2-9F09-4003-B6E1-75F4898AADDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedundantComments", "src\Comments\RedundantComments\RedundantComments.csproj", "{779D88EC-F20E-4DCF-81FE-8CC423E752FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedundantComments", "src\Comments\RedundantComments\RedundantComments.csproj", "{779D88EC-F20E-4DCF-81FE-8CC423E752FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandatedComments", "src\Comments\MandatedComments\MandatedComments.csproj", "{6BEED9E1-2E3A-48B1-9BDD-4A4C4621C496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MandatedComments", "src\Comments\MandatedComments\MandatedComments.csproj", "{6BEED9E1-2E3A-48B1-9BDD-4A4C4621C496}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClosingBraceComments", "src\Comments\ClosingBraceComments\ClosingBraceComments.csproj", "{C07B88F4-F297-4078-92A4-123360E3EEEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosingBraceComments", "src\Comments\ClosingBraceComments\ClosingBraceComments.csproj", "{C07B88F4-F297-4078-92A4-123360E3EEEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formatting", "Formatting", "{D8730161-7111-4B03-B08C-4555AA6BB1D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalDensity", "src\Formatting\VerticalDensity\VerticalDensity.csproj", "{FF782EF5-34F0-41CC-88B3-E7008B54C696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -203,6 +207,10 @@ Global
 		{C07B88F4-F297-4078-92A4-123360E3EEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C07B88F4-F297-4078-92A4-123360E3EEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C07B88F4-F297-4078-92A4-123360E3EEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF782EF5-34F0-41CC-88B3-E7008B54C696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF782EF5-34F0-41CC-88B3-E7008B54C696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF782EF5-34F0-41CC-88B3-E7008B54C696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF782EF5-34F0-41CC-88B3-E7008B54C696}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -242,6 +250,8 @@ Global
 		{779D88EC-F20E-4DCF-81FE-8CC423E752FC} = {DE5230D2-FB6A-4A2C-A0D2-B5D206F7A337}
 		{6BEED9E1-2E3A-48B1-9BDD-4A4C4621C496} = {DE5230D2-FB6A-4A2C-A0D2-B5D206F7A337}
 		{C07B88F4-F297-4078-92A4-123360E3EEEB} = {DE5230D2-FB6A-4A2C-A0D2-B5D206F7A337}
+		{D8730161-7111-4B03-B08C-4555AA6BB1D2} = {6C493771-5710-4B08-AE41-AC62358B1108}
+		{FF782EF5-34F0-41CC-88B3-E7008B54C696} = {D8730161-7111-4B03-B08C-4555AA6BB1D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}

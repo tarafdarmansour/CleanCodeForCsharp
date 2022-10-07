@@ -1913,29 +1913,35 @@ As you can see, the readability of the second example is greater than that of th
 
 The vertical density implies close association. So lines of code that are tightly related should appear vertically dense. Check the follow example:
 
-```Java
-public class ReporterConfig {
+```csharp
+//Bad:
+public class BadReporterConfig
+{
+    /**
+     * The properties of the reporter listener
+     */
+    private readonly List<Property> m_properties = new();
 
-	/**
-	 * The class name of the reporter listener */
-	private String m_className;
+    /**
+     * The class name of the reporter listener
+     */
+    private string m_className;
 
-	/**
-	 * The properties of the reporter listener */
-	private List<Property> m_properties = new ArrayList<Property>();
+    public void addProperty(Property property)
+    {
+        m_properties.Add(property);
+    }
+}
+//Good:
+public class GoodReporterConfig
+{
+    private string m_className;
+    private readonly List<Property> m_properties = new();
 
-	public void addProperty(Property property) { m_properties.add(property);
-	}
-```
-
-```java
-public class ReporterConfig {
-  private String m_className;
-  private List<Property> m_properties = new ArrayList<Property>();
-
-  public void addProperty(Property property) {
-    m_properties.add(property);
-  }
+    public void addProperty(Property property)
+    {
+        m_properties.Add(property);
+    }
 }
 ```
 
