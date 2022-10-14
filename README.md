@@ -1949,7 +1949,53 @@ The second code it's much easier to read. It fits in an "eye-full".
 
 #### Vertical Distance
 
-**Variable Declarations**. Variables should be declared as close to their usage as possible. Because our functions are very short, local variables should appear at the top of each function,
+**Variable Declarations**. Variables should be declared as close to their usage as possible. Because our functions are very short, local variables should appear at the top of each function.
+
+```csharp
+//Good:
+public override async Task<CommandResult> Handle(AddScoreCommand request, CancellationToken cancellationToken)
+{
+    var entity = await _contentRepos.GetByIdAsync(cancellationToken, request.ContentId);
+    if (entity == null)
+    {
+        AddMessage("Your request is invalid");
+        return Result(ApiResultStatusCode.NotFound);
+    }
+
+    entity.AddScore(request.Score, request.UserClientId);
+
+    var updateres = await _contentRepos.UpdateAsync(entity, cancellationToken);
+
+    return Result(updateres ? ApiResultStatusCode.Success : ApiResultStatusCode.ErrorInDataUpdate);
+}
+```
+
+Control variables for loops should usually be declared within the loop statement, as in this cute little function from the same source.
+
+```csharp
+//Good:
+private void AddNodeToTree(List<ResourceAccessDTO> menu, ResourceAccessDTO menuitem)
+{
+    if (menuitem.ParentId == null)
+    {
+        menu.Add(menuitem);
+        return;
+    }
+    foreach (var item in menu)
+    {
+        if (menuitem.ParentId == item.value)
+        {
+            item.children.Add(menuitem);
+            item.collapsed = true;
+            return;
+        }
+        else if (item.children.Any())
+        {
+            AddNodeToTree(item.children, menuitem);
+        }
+    }
+}
+```
 
 **Instance variables**, on the other hand, should be declared at the top of the class. This should not increase the vertical distance of these variables, because in a well-designed class, they are used by many, if not all, of the methods of the class.
 
