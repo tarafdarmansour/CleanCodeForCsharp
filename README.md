@@ -1969,7 +1969,7 @@ In general we want function call dependencies to point in the downward direction
 
 We use horizontal white space to associate things that are strongly related and disassociate things that are more weakly related. Example:
 
-```java
+```csharp
 private void measureLine(String line) {
   lineCount++;
   int lineSize = line.length();
@@ -1983,7 +1983,7 @@ Assignment statements have two distinct and major elements: the left side and th
 
 #### Horizontal Alignment
 
-```java
+```csharp
 public class Example implements Base
 {
   private   Socket      socket;
@@ -2000,7 +2000,7 @@ public class Example implements Base
 
 In modern languages this type of alignment is not useful. The alignment seems to emphasize the wrong things and leads my eye away from the true intent.
 
-```java
+```csharp
 public class Example implements Base
 {
   private Socket socket;
