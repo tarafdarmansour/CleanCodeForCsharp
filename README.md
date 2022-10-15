@@ -2003,6 +2003,105 @@ There have been many debates over where instance variables should go. In C++ we 
 
 **Dependent Functions**. If one function calls another, they should be vertically close, and the caller should be above the callee, if at all possible. This gives the program a natural flow. If the convention is followed reliably, readers will be able to trust that function definitions will follow shortly after their use.
 
+```csharp
+public class AppDbContext : DbContext
+{
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    private readonly IMediator _mediator;
+
+    public AppDbContext()
+    {
+    }
+
+    public AppDbContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor, IMediator mediator) :
+        base(options)
+    {
+        _httpContextAccessor = httpContextAccessor;
+        _mediator = mediator;
+    }
+
+    public override int SaveChanges()
+    {
+        return SaveChangesAsync().GetAwaiter().GetResult();
+    }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        handleAuditables();
+
+        handleTrackDelete();
+
+        await dispachEvents();
+
+        return await base.SaveChangesAsync(true, cancellationToken);
+    }
+
+    private void handleAuditables()
+    {
+        foreach (var auditableEntity in ChangeTracker.Entries<IAuditable>())
+        {
+            if (auditableEntity.State == EntityState.Added || auditableEntity.State == EntityState.Modified)
+            {
+                auditableEntity.Property("UpdateTime").CurrentValue = DateTime.Now;
+
+                if (auditableEntity.State == EntityState.Added)
+                    auditableEntity.Property("InsertTime").CurrentValue = DateTime.Now;
+            }
+
+            if (auditableEntity.State == EntityState.Deleted)
+            {
+                auditableEntity.State = EntityState.Modified;
+                auditableEntity.Property("IsRemoved").CurrentValue = true;
+                auditableEntity.Property("DeleteTime").CurrentValue = DateTime.Now;
+            }
+
+            auditableEntity.Property("applicatorId").CurrentValue = GetUserId();
+        }
+    }
+
+    private Guid GetUserId()
+    {
+        var userId = Guid.Empty;
+        Guid.TryParse(_httpContextAccessor.HttpContext?.Items["UserId"]?.ToString(), out userId);
+        return userId;
+    }
+
+    private void handleTrackDelete()
+    {
+        foreach (var trackingdelete in ChangeTracker
+                     .Entries<ITrackDelete>()
+                     .Where(e => e.State == EntityState.Deleted))
+            trackingdelete.Entity.CallDeleteEvent();
+    }
+
+    private async Task dispachEvents()
+    {
+        if (_mediator == null) return;
+
+        var changedAggregates =
+            ChangeTracker.Entries<IHasEvent>()
+                .Select(c => c.Entity)
+                .Where(c => c.GetEvents().Any())
+                .ToList();
+
+        if (!changedAggregates.Any()) return;
+
+        foreach (var aggregate in changedAggregates)
+        {
+            var events = aggregate.GetEvents();
+            foreach (var @event in events.Where(e => !e.IsPublish()))
+            {
+                await _mediator.Publish(new OutboxMessageCreated(@event));
+                @event.SetAsPublished();
+            }
+
+            aggregate.RemovePublishedEvents();
+        }
+    }
+}
+```
+
 **Conceptual Affinity**. Certain bits of code want to be near other bits. They have a certain conceptual affinity. The stronger that affinity, the less vertical distance there should be between them.
 
 #### Vertical Ordering
