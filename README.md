@@ -2104,6 +2104,74 @@ public class AppDbContext : DbContext
 
 **Conceptual Affinity**. Certain bits of code want to be near other bits. They have a certain conceptual affinity. The stronger that affinity, the less vertical distance there should be between them.
 
+```csharp
+public class ApiResult
+{
+    private readonly bool _isSuccess;
+    private string _message;
+
+    public ApiResult(bool isSuccess, ApiResultStatusCode statusCode, string message = null)
+    {
+        _isSuccess = isSuccess;
+        StatusCode = statusCode;
+        Message = message ?? statusCode.ToDisplay();
+    }
+
+    public bool IsSuccess => _isSuccess && StatusCode == ApiResultStatusCode.Success;
+
+    public ApiResultStatusCode StatusCode { get; set; }
+
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string Message { get; set; }
+
+    #region Implicit Operators
+
+    public static implicit operator ApiResult(OkResult result)
+    {
+        return new ApiResult(true, ApiResultStatusCode.Success);
+    }
+
+    public static implicit operator ApiResult(BadRequestResult result)
+    {
+        return new ApiResult(false, ApiResultStatusCode.BadRequest);
+    }
+
+    public static implicit operator ApiResult(BadRequestObjectResult result)
+    {
+        var message = result.Value.ToString();
+        if (result.Value is SerializableError errors)
+        {
+            var errorMessages = errors.SelectMany(p => (string[])p.Value).Distinct();
+            message = string.Join(" | ", errorMessages);
+        }
+
+        return new ApiResult(false, ApiResultStatusCode.BadRequest, message);
+    }
+
+    public static implicit operator ApiResult(ContentResult result)
+    {
+        return new ApiResult(true, ApiResultStatusCode.Success, result.Content);
+    }
+
+    public static implicit operator ApiResult(NotFoundResult result)
+    {
+        return new ApiResult(false, ApiResultStatusCode.NotFound);
+    }
+
+    public static implicit operator ApiResult(UnauthorizedResult result)
+    {
+        return new ApiResult(false, ApiResultStatusCode.UnAuthorized);
+    }
+
+    public static implicit operator ApiResult(CommandResult result)
+    {
+        return new ApiResult(result.IsSuccess, result.Status, result.GetMessage());
+    }
+
+    #endregion
+}
+```
+
 #### Vertical Ordering
 
 In general we want function call dependencies to point in the downward direction. That is, a function that is called should be below a function that does the calling. This creates a nice flow down the source code module from high level to low level. _(This is the exact opposite of languages like Pascal, C, and C++ that enforce functions to be defined, or at least declared, before they are used)_
