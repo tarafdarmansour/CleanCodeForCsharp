@@ -2254,39 +2254,44 @@ These two examples show the difference between objects and data structures. Obje
 
 **Procedural Shape**
 
-```java
-public class Square {
-  public Point topLeft;
-  public double side;
+```csharp
+public class Square
+{
+    public double side;
+    public Point topLeft;
 }
 
-public class Rectangle {
-  public Point topLeft;
-  public double height;
-  public double width;
+public class Rectangle
+{
+    public double height;
+    public Point topLeft;
+    public double width;
 }
 
-public class Circle {
-  public Point center;
-  public double radius;
+public class Circle
+{
+    public Point center;
+    public double radius;
 }
 
-public class Geometry {
-  public final double PI = 3.141592653589793;
+public class Geometry
+{
+    public const double PI = 3.141592653589793;
 
-  public double area(Object shape) throws NoSuchShapeException {
-    if (shape instanceof Square) {
-      Square s = (Square)shape;
-      return s.side * s.side;
+    public double area(object shape)
+    {
+        if (shape is Square square) return square.side * square.side;
+
+        if (shape is Rectangle rectangle) return rectangle.height * rectangle.width;
+
+        if (shape is Circle circle) return PI * circle.radius * circle.radius;
+
+        throw new NoSuchShapeException();
     }
-    else if (shape instanceof Rectangle) { Rectangle r = (Rectangle)shape; return r.height * r.width;
-    }
-    else if (shape instanceof Circle) {
-      Circle c = (Circle)shape;
-      return PI * c.radius * c.radius;
-    }
-    throw new NoSuchShapeException();
-  }
+}
+
+public class NoSuchShapeException : Exception
+{
 }
 ```
 
