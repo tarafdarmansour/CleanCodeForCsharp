@@ -2297,34 +2297,44 @@ public class NoSuchShapeException : Exception
 
 **Polymorphic Shape**
 
-```java
-public class Square implements Shape {
-  private Point topLeft;
-  private double side;
-
-  public double area() {
-    return side*side;
-  }
+```csharp
+public class Shape
+{
 }
 
-public class Rectangle implements Shape {
-  private Point topLeft;
-  private double height;
-  private double width;
+public class Square : Shape
+{
+    private double side;
+    private Point topLeft;
 
-  public double area() {
-    return height * width;
-  }
+    public double area()
+    {
+        return side * side;
+    }
 }
 
-public class Circle implements Shape {
-  private Point center;
-  private double radius;
-  public final double PI = 3.141592653589793;
+public class Rectangle : Shape
+{
+    private double height;
+    private Point topLeft;
+    private double width;
 
-  public double area() {
-    return PI * radius * radius;
-  }
+    public double area()
+    {
+        return height * width;
+    }
+}
+
+public class Circle : Shape
+{
+    public const double PI = 3.141592653589793;
+    private Point center;
+    private double radius;
+
+    public double area()
+    {
+        return PI * radius * radius;
+    }
 }
 ```
 
