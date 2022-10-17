@@ -75,7 +75,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClosingBraceComments", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formatting", "Formatting", "{D8730161-7111-4B03-B08C-4555AA6BB1D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalDensity", "src\Formatting\VerticalDensity\VerticalDensity.csproj", "{FF782EF5-34F0-41CC-88B3-E7008B54C696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VerticalDensity", "src\Formatting\VerticalDensity\VerticalDensity.csproj", "{FF782EF5-34F0-41CC-88B3-E7008B54C696}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ObjectsandDataStructures", "ObjectsandDataStructures", "{0D2E1730-2C09-45E8-A5CD-0A8606BD0E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data-ObjectAnti-Symmetry", "src\ObjectsandDataStructures\Data-ObjectAnti-Symmetry\Data-ObjectAnti-Symmetry.csproj", "{FAF6C104-2345-4344-A177-4ED8D397F9BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -211,6 +215,10 @@ Global
 		{FF782EF5-34F0-41CC-88B3-E7008B54C696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF782EF5-34F0-41CC-88B3-E7008B54C696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF782EF5-34F0-41CC-88B3-E7008B54C696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF6C104-2345-4344-A177-4ED8D397F9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF6C104-2345-4344-A177-4ED8D397F9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF6C104-2345-4344-A177-4ED8D397F9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF6C104-2345-4344-A177-4ED8D397F9BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -252,6 +260,8 @@ Global
 		{C07B88F4-F297-4078-92A4-123360E3EEEB} = {DE5230D2-FB6A-4A2C-A0D2-B5D206F7A337}
 		{D8730161-7111-4B03-B08C-4555AA6BB1D2} = {6C493771-5710-4B08-AE41-AC62358B1108}
 		{FF782EF5-34F0-41CC-88B3-E7008B54C696} = {D8730161-7111-4B03-B08C-4555AA6BB1D2}
+		{0D2E1730-2C09-45E8-A5CD-0A8606BD0E62} = {6C493771-5710-4B08-AE41-AC62358B1108}
+		{FAF6C104-2345-4344-A177-4ED8D397F9BF} = {0D2E1730-2C09-45E8-A5CD-0A8606BD0E62}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}
