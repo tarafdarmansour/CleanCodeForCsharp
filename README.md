@@ -2361,6 +2361,106 @@ More precisely, the Law of Demeter says that a method `f` of a class `C` should 
 
 The method should not invoke methods on objects that are returned by any of the allowed functions. In other words, talk to friends, not to strangers.
 
+Here is an example from [CODING JOURNEYMAN](https://codingjourneyman.com/2015/03/30/the-law-of-demeter/)
+
+```csharp
+//Bad:
+public class Wallet
+{
+    public float Value { get; set; }
+
+    public void AddMoney(float amount)
+    {
+        Value += amount;
+    }
+
+    public void SubMoney(float amount)
+    {
+        Value -= amount;
+    }
+}
+
+public class Customer
+{
+    public string FirstName { get; set; }
+
+    public string LastName { get; set; }
+
+    public Wallet Wallet { get; set; }
+}
+
+public class Paperboy
+{
+    public void SellPaper(Customer customer)
+    {
+        var payment = 2.0f;
+        //Here we break Demeter's Law
+        var wallet = customer.Wallet;
+        if (wallet.Value >= payment) wallet.SubMoney(payment);
+    }
+}
+//Good:
+public class Wallet
+{
+    public Wallet(float initialAmount)
+    {
+        Value = initialAmount;
+    }
+
+    public float Value { get; private set; }
+
+    public void AddMoney(float amount)
+    {
+        Value += amount;
+    }
+
+    public void SubMoney(float amount)
+    {
+        Value -= amount;
+    }
+}
+
+public class Customer
+{
+    private readonly Wallet _wallet;
+
+    public Customer()
+    {
+        FirstName = "John";
+        LastName = "Doe";
+        _wallet = new Wallet(20.0f); // amount set to 20 for example
+    }
+
+    public string FirstName { get; }
+
+    public string LastName { get; }
+
+    public float PayAmount(float amountToPay)
+    {
+        if (_wallet.Value >= amountToPay)
+        {
+            _wallet.SubMoney(amountToPay);
+            return amountToPay;
+        }
+
+        return 0;
+    }
+}
+
+public class Paperboy
+{
+    public void SellPaper(Customer customer)
+    {
+        var payment = 2.0f;
+        var amountPaid = customer.PayAmount(payment);
+        if (amountPaid != payment)
+        {
+            // come back later
+        }
+    }
+}
+```
+
 ### Data Transfer Objects
 
 The quintessential form of a data structure is a class with public variables and no functions. This is sometimes called a data transfer object, or DTO. DTOs are very useful structures, especially when communicating with databases or parsing messages from sockets, and so on. They often become the first in a series of translation stages that convert raw data in a database into objects in the application code.
