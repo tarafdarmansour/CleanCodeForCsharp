@@ -2473,7 +2473,27 @@ Many code bases are completely dominated by error handling. When I say dominated
 
 ### Use Exceptions Rather Than Return Codes
 
-Back in the distant past there were many languages that didn't have exceptions. In those languages the techniques for handling and reporting errors were limited. You either set an error flag or returned an error code that the caller could check
+Back in the distant past there were many languages that didn't have exceptions. In those languages the techniques for handling and reporting errors were limited. You either set an error flag or returned an error code that the caller could check.
+
+```csharp
+//Bad:
+public int Withdraw(int amount)
+{
+    if (amount > _balance)
+    {
+        return -1;
+    }
+
+    _balance -= amount;
+    return 0;
+}
+//Good:
+public void Withdraw(int amount)
+{
+    if (amount > _balance) throw new BalanceException();
+    _balance -= amount;
+}
+```
 
 ### Write Your Try-Catch-Finally Statement First
 
