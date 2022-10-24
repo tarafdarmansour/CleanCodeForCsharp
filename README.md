@@ -2499,6 +2499,43 @@ public void Withdraw(int amount)
 
 In a way, try blocks are like transactions. Your catch has to leave your program in a consistent state, no matter what happens in the try. For this reason it is good practice to start with a try-catch-finally statement when you are writing code that could throw exceptions. This helps you define what the user of that code should expect, no matter what goes wrong with the code that is executed in the try.
 
+```csharp
+
+//Good:
+public class UnitTest1
+{
+    [Fact]
+    public void retrieveSectionShouldThrowOnInvalidFileName()
+    {
+        Action act = () => retrieveSection("invalid - file");
+        var exception = Assert.Throws<StorageException>(act);
+        Assert.Equal("retrieval error", exception.Message);
+    }
+
+    public List<RecordedGrip> retrieveSection(string sectionName)
+    {
+        try
+        {
+            StreamReader stream = new(sectionName);
+            stream.Close();
+        }
+        catch (FileNotFoundException e)
+        {
+            throw new StorageException("retrieval error");
+        }
+
+        return new List<RecordedGrip>();
+    }
+}
+
+public class StorageException : Exception
+{
+    public StorageException(string s) : base(s)
+    {
+    }
+}
+```
+
 ### Provide Context with Exceptions
 
 Each exception that you throw should provide enough context to determine the source and location of an error.
