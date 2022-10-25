@@ -83,7 +83,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data-ObjectAnti-Symmetry", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheLawofDemeter", "src\ObjectsandDataStructures\TheLawofDemeter\TheLawofDemeter.csproj", "{262987CD-0CC7-4CF3-89CE-8CC3CDD44867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WriteYourTry-Catch-FinallyStatementFirst", "src\ObjectsandDataStructures\WriteYourTry-Catch-FinallyStatementFirst\WriteYourTry-Catch-FinallyStatementFirst.csproj", "{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WriteYourTry-Catch-FinallyStatementFirst", "src\ErrorHandling\WriteYourTry-Catch-FinallyStatementFirst\WriteYourTry-Catch-FinallyStatementFirst.csproj", "{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ErrorHandling", "ErrorHandling", "{F2859071-F89F-4864-BFD3-D6D56EB1F56A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -275,7 +277,8 @@ Global
 		{0D2E1730-2C09-45E8-A5CD-0A8606BD0E62} = {6C493771-5710-4B08-AE41-AC62358B1108}
 		{FAF6C104-2345-4344-A177-4ED8D397F9BF} = {0D2E1730-2C09-45E8-A5CD-0A8606BD0E62}
 		{262987CD-0CC7-4CF3-89CE-8CC3CDD44867} = {0D2E1730-2C09-45E8-A5CD-0A8606BD0E62}
-		{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B} = {0D2E1730-2C09-45E8-A5CD-0A8606BD0E62}
+		{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B} = {F2859071-F89F-4864-BFD3-D6D56EB1F56A}
+		{F2859071-F89F-4864-BFD3-D6D56EB1F56A} = {6C493771-5710-4B08-AE41-AC62358B1108}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}
