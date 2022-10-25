@@ -2542,6 +2542,42 @@ Each exception that you throw should provide enough context to determine the sou
 
 Create informative error messages and pass them along with your exceptions. Mention the operation that failed and the type of failure. If you are logging in your application, pass along enough information to be able to log the error in your catch.
 
+```csharp
+//Bad:
+public class Bad
+{
+    public double Divide(double numerator, double denominator)
+    {
+        if (denominator == 0)
+            throw new Exception("divide by zero");
+
+        return numerator / denominator;
+    }
+}
+//Good:
+public class Good
+{
+    public double Divide(double numerator, double denominator)
+    {
+        if (denominator == 0) ThrowInformativeException(numerator, denominator);
+
+        return numerator / denominator;
+    }
+
+    private static void ThrowInformativeException(double numerator, double denominator)
+    {
+        throw new Exception(JsonConvert.SerializeObject(new
+        {
+            Message = "divide by zero",
+            Method = "Divide",
+            Class = "Good",
+            numerator,
+            denominator
+        }));
+    }
+}
+```
+
 ### Don't Return Null
 
 If you are tempted to return null from a method, consider throwing an exception or returning a SPECIAL CASE object instead. If you are calling a null-returning method from a third-party API, consider wrapping that method with a method that either throws an exception or returns a special case object.
