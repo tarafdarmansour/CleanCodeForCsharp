@@ -87,7 +87,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WriteYourTry-Catch-FinallyS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ErrorHandling", "ErrorHandling", "{F2859071-F89F-4864-BFD3-D6D56EB1F56A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvideContextwithExceptions", "src\ErrorHandling\ProvideContextwithExceptions\ProvideContextwithExceptions.csproj", "{835044CC-A55B-44EA-8A4B-6E776590C3A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeﬁneExceptionClassesinTermsofaCallersNeeds", "src\ErrorHandling\DeﬁneExceptionClassesinTermsofaCallersNeeds\DeﬁneExceptionClassesinTermsofaCallersNeeds.csproj", "{1E682411-0901-4FFC-9C5C-56D1B580B8F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -235,10 +235,10 @@ Global
 		{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{835044CC-A55B-44EA-8A4B-6E776590C3A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{835044CC-A55B-44EA-8A4B-6E776590C3A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{835044CC-A55B-44EA-8A4B-6E776590C3A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{835044CC-A55B-44EA-8A4B-6E776590C3A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E682411-0901-4FFC-9C5C-56D1B580B8F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E682411-0901-4FFC-9C5C-56D1B580B8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E682411-0901-4FFC-9C5C-56D1B580B8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E682411-0901-4FFC-9C5C-56D1B580B8F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -285,7 +285,7 @@ Global
 		{262987CD-0CC7-4CF3-89CE-8CC3CDD44867} = {0D2E1730-2C09-45E8-A5CD-0A8606BD0E62}
 		{C4A379EF-9097-4E16-9BC6-7EE19CBCA25B} = {F2859071-F89F-4864-BFD3-D6D56EB1F56A}
 		{F2859071-F89F-4864-BFD3-D6D56EB1F56A} = {6C493771-5710-4B08-AE41-AC62358B1108}
-		{835044CC-A55B-44EA-8A4B-6E776590C3A5} = {F2859071-F89F-4864-BFD3-D6D56EB1F56A}
+		{1E682411-0901-4FFC-9C5C-56D1B580B8F3} = {F2859071-F89F-4864-BFD3-D6D56EB1F56A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A664607B-5125-4573-A932-620F56C8C184}
