@@ -2578,6 +2578,84 @@ public class Good
 }
 ```
 
+### Deﬁne Exception Classes in Terms of a Caller’s Needs
+
+There are many ways to classify errors. We can classify them by their source: Did they come from one component or another? Or their type: Are they device failures, network failures, or programming errors? However, when we deﬁne exception classes in an application, our most important concern should be how
+they are caught.
+
+```csharp
+//Bad:
+var port = new ACMEPort(12);
+try
+{
+    port.open();
+}
+catch (DeviceResponseException e)
+{
+    reportPortError(e);
+    _logger.Log("Device response exception", e);
+}
+catch (ATM1212UnlockedException e)
+{
+    reportPortError(e);
+    _logger.Log("Unlock exception", e);
+}
+catch (GMXError e)
+{
+    reportPortError(e);
+    _logger.Log("Device response exception");
+}
+finally
+{
+    _logger.Log("finally section");
+}
+//Good:
+var port = new LocalPort(12);
+try
+{
+    port.open();
+}
+catch (PortDeviceFailure e)
+{
+    reportError(e);
+    _logger.Log(e.getMessage(), e);
+}
+finally
+{
+    _logger.Log("finally section");
+}
+
+public class LocalPort
+{
+    private readonly ACMEPort innerPort;
+
+    public LocalPort(int portNumber)
+    {
+        innerPort = new ACMEPort(portNumber);
+    }
+
+    public void open()
+    {
+        try
+        {
+            innerPort.open();
+        }
+        catch (DeviceResponseException e)
+        {
+            throw new PortDeviceFailure(e);
+        }
+        catch (ATM1212UnlockedException e)
+        {
+            throw new PortDeviceFailure(e);
+        }
+        catch (GMXError e)
+        {
+            throw new PortDeviceFailure(e);
+        }
+    }
+}
+```
+
 ### Don't Return Null
 
 If you are tempted to return null from a method, consider throwing an exception or returning a SPECIAL CASE object instead. If you are calling a null-returning method from a third-party API, consider wrapping that method with a method that either throws an exception or returns a special case object.
