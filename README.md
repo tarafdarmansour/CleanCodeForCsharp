@@ -1,4 +1,4 @@
-# Clean Code Notes In C# (in progress)
+# Clean Code Notes In C# (.NET 6.0) (in progress)
 
 This repository is originaly based on [Juan Carlos Ruiz
 Clean Code Note](https://github.com/JuanCrg90/Clean-Code-Notes) repository
