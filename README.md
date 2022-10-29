@@ -2500,7 +2500,6 @@ public void Withdraw(int amount)
 In a way, try blocks are like transactions. Your catch has to leave your program in a consistent state, no matter what happens in the try. For this reason it is good practice to start with a try-catch-finally statement when you are writing code that could throw exceptions. This helps you define what the user of that code should expect, no matter what goes wrong with the code that is executed in the try.
 
 ```csharp
-
 //Good:
 public class UnitTest1
 {
@@ -2659,6 +2658,54 @@ public class LocalPort
 ### Don't Return Null
 
 If you are tempted to return null from a method, consider throwing an exception or returning a SPECIAL CASE object instead. If you are calling a null-returning method from a third-party API, consider wrapping that method with a method that either throws an exception or returns a special case object.
+
+```csharp
+//Bad:
+public class Bad
+{
+    private decimal totalPay;
+
+    public void run()
+    {
+        var employees = getEmployees();
+        if (employees != null)
+            foreach (var e in employees)
+                totalPay += e.getPay();
+    }
+
+    private List<Employee> getEmployees()
+    {
+        if (DateTime.Now.Second % 2 == 0)
+            return new List<Employee>
+            {
+                new(),
+                new()
+            };
+        return null;
+    }
+}
+//Good:
+public class Good
+{
+    private decimal totalPay;
+
+    public void run()
+    {
+        totalPay = getEmployees().Sum(e => e.getPay());
+    }
+
+    private List<Employee> getEmployees()
+    {
+        if (DateTime.Now.Second % 2 == 0)
+            return new List<Employee>
+            {
+                new(),
+                new()
+            };
+        return new List<Employee>();
+    }
+}
+```
 
 ### Don't Pass Null
 
