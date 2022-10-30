@@ -2721,21 +2721,17 @@ We seldom control all the software in our systems. Sometimes we buy third-party 
 
 There is a natural tension between the provider of an interface and the user of an interface. Providers of third-party packages and frameworks strive for broad applicability so they can work in many environments and appeal to a wide audience. Users, on the other hand, want an interface that is focused on their particular needs. This tension can cause problems at the boundaries of our systems. Example:
 
-```java
+```csharp
+//Bad:
 Map sensors = new HashMap();
 Sensor s = (Sensor)sensors.get(sensorId);
-```
-
-VS
-
-```java
+//Good:
 public class Sensors {
   private Map sensors = new HashMap();
 
   public Sensor getById(String id) {
     return (Sensor) sensors.get(id);
   }
-  //snip
 }
 ```
 
